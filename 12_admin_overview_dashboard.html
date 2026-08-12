@@ -1,0 +1,255 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Bank Fleet Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {background: "#f6faff", "on-primary-fixed": "#001f25", "inverse-primary": "#62d6ed", error: "#ba1a1a", "on-tertiary-fixed": "#2f1400", "on-secondary-fixed": "#1a1c1c", "surface-container-lowest": "#ffffff", "primary-fixed-dim": "#62d6ed", "surface-container-high": "#e1e9f1", "on-secondary": "#ffffff", "on-error-container": "#93000a", "outline-variant": "#bcc9cc", "error-container": "#ffdad6", "tertiary-fixed": "#ffdcc4", "surface-container": "#e7eff7", "secondary-fixed": "#e2e2e2", "on-tertiary-container": "#492200", "on-tertiary": "#ffffff", "primary-fixed": "#a4eeff", "on-surface": "#151d22", "on-error": "#ffffff", secondary: "#5d5f5f", tertiary: "#914c07", surface: "#f6faff", "on-primary": "#ffffff", "on-primary-fixed-variant": "#004e5a", "on-primary-container": "#00323a", "on-surface-variant": "#3d494c", "on-secondary-fixed-variant": "#454747", "surface-dim": "#d3dbe3", "on-secondary-container": "#616363", "surface-container-low": "#edf4fc", "inverse-surface": "#2a3137", "tertiary-fixed-dim": "#ffb781", "secondary-fixed-dim": "#c6c6c7", "surface-container-highest": "#dce3eb", "surface-tint": "#006877", "surface-bright": "#f6faff", outline: "#6d797c", "inverse-on-surface": "#eaf2f9", "primary-container": "#17a2b8", "on-background": "#151d22", "tertiary-container": "#d2803c", "secondary-container": "#dfe0e0", primary: "#006877", "on-tertiary-fixed-variant": "#703800", "surface-variant": "#dce3eb"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, spacing: {sm: "8px", xs: "4px", xl: "32px", md: "16px", "container-max": "1440px", lg: "24px", base: "4px", gutter: "20px"}, fontFamily: {"mono-data": ["Inter"], "label-sm": ["Inter"], "headline-md": ["Inter"], "headline-lg-mobile": ["Inter"], "body-md": ["Inter"], display: ["Inter"], "body-lg": ["Inter"], "headline-lg": ["Inter"], headline: ["Inter"], body: ["Inter"], label: ["Inter"]}, fontSize: {"mono-data": ["13px", {lineHeight: "18px", fontWeight: "500"}], "label-sm": ["12px", {lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600"}], "headline-md": ["18px", {lineHeight: "24px", fontWeight: "600"}], "headline-lg-mobile": ["20px", {lineHeight: "28px", fontWeight: "600"}], "body-md": ["14px", {lineHeight: "20px", fontWeight: "400"}], display: ["36px", {lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700"}], "body-lg": ["16px", {lineHeight: "24px", fontWeight: "400"}], "headline-lg": ["24px", {lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600"}]}}}};</script>
+<style>
+        .sidebar-fixed { width: 260px; }
+        .main-content-offset { margin-left: 260px; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- Left Navigation -->
+<nav class="sidebar-fixed h-full bg-surface-container-low border-r border-outline-variant fixed left-0 top-0 z-40 flex flex-col p-md">
+<div class="flex items-center gap-md pb-lg border-b border-outline-variant mb-md">
+<div class="w-10 h-10 rounded bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<span class="text-label-sm font-bold text-primary truncate uppercase tracking-tighter">Bank Fleet Central</span>
+<span class="text-[10px] text-secondary">Operational Dashboard</span>
+</div>
+</div>
+<div class="flex flex-col gap-xs flex-1">
+<a class="flex items-center gap-md px-md py-sm rounded bg-primary text-on-primary font-medium" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-label-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-label-sm">Bookings</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="text-label-sm">Vehicles</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">badge</span>
+<span class="text-label-sm">Drivers</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="text-label-sm">Renewals &amp; Docs</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="text-label-sm">Reports</span>
+</a>
+</div>
+<div class="mt-auto pt-md border-t border-outline-variant">
+<div class="flex items-center gap-sm">
+<img alt="User" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9vQsIy66bOyMsVErnlYkRdhcfThBcdUGh_dWkoCj0LrZw9FPrYO4A0vvkVZ9oGSj_V0YN_450zxuN7q6K0m-kWjx8DB4Cg-DONy0K_8hNEdMBLrZgvs_fzcfgr7u17bARcIIBBf6h5BTPKLEegQ4HRQfysI8Fv-kv-ll_7JmLRn0Wc3-qKJkw-VoqCH82jNU-eOd558nyqMqHbBCCOzJtF3Fkf5ZruVMhUmbyWlcnW6-CPLm38TwE">
+<div class="flex flex-col">
+<span class="text-label-sm font-bold text-primary">Salim Thapa</span>
+<span class="text-[10px] text-secondary">Fleet Admin</span>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="main-content-offset min-h-screen flex flex-col">
+<!-- Header -->
+<header class="bg-surface border-b border-outline-variant sticky top-0 z-30">
+<div class="flex justify-between items-center px-gutter py-md w-full">
+<h1 class="text-headline-md font-bold text-primary">Fleet Overview</h1>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-secondary hover:text-primary transition-colors">notifications</button>
+<button class="material-symbols-outlined text-secondary hover:text-primary transition-colors">settings</button>
+</div>
+</div>
+</header>
+<main class="flex-1 p-gutter w-full overflow-y-auto">
+<!-- Top Summary Strip -->
+<div class="grid grid-cols-4 gap-md mb-lg">
+<div class="bg-surface border border-outline-variant rounded-lg p-md flex items-center gap-md">
+<div class="w-10 h-10 rounded bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+
+</div>
+<div>
+<div class="text-display leading-none font-bold text-primary">9</div>
+<div class="text-label-sm text-secondary">Total Vehicles</div>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant rounded-lg p-md flex items-center gap-md">
+<div class="w-10 h-10 rounded bg-[#cffff5] flex items-center justify-center text-[#006874]">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div>
+<div class="text-display leading-none font-bold text-primary">6</div>
+<div class="text-label-sm text-secondary">In Pool / Available</div>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant rounded-lg p-md flex items-center gap-md">
+<div class="w-10 h-10 rounded bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<div class="text-display leading-none font-bold text-primary">2</div>
+<div class="text-label-sm text-secondary">Booked / On Trip</div>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant rounded-lg p-md flex items-center gap-md">
+<div class="w-10 h-10 rounded bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined">block</span>
+</div>
+<div>
+<div class="text-display leading-none font-bold text-primary">1</div>
+<div class="text-label-sm text-secondary">Blocked - Maintenance</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-lg">
+<!-- Today's Bookings Section -->
+<div class="col-span-2 space-y-md">
+<div class="bg-surface border border-outline-variant rounded-lg overflow-hidden flex flex-col">
+<div class="px-md py-sm border-b border-outline-variant bg-surface-container-low flex justify-between items-center">
+<h2 class="text-label-sm font-bold text-primary uppercase tracking-wider">Today's Bookings</h2>
+<button class="text-[11px] text-secondary hover:text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">calendar_month</span> Manage
+                        </button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-lowest border-b border-outline-variant text-[11px] font-bold text-secondary uppercase tracking-tighter">
+<th class="px-md py-2">Requestor</th>
+<th class="px-md py-2">Route</th>
+<th class="px-md py-2">Time</th>
+<th class="px-md py-2">Vehicle</th>
+<th class="px-md py-2">Driver</th>
+<th class="px-md py-2">Status</th>
+</tr>
+</thead>
+<tbody class="text-body-md divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-lowest transition-colors cursor-pointer">
+<td class="px-md py-2 font-medium">Sabin Gautam</td>
+<td class="px-md py-2 text-secondary text-xs">Krishna Tower → Airport</td>
+<td class="px-md py-2 text-xs">09:00 - 11:30</td>
+<td class="px-md py-2 font-mono-data text-xs">BA 2 CHA 1042 (Swift)</td>
+<td class="px-md py-2 text-xs">Kiran Shrestha</td>
+<td class="px-md py-2">
+<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#d3e3fd] text-[#041e49]">SCHEDULED</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors cursor-pointer">
+<td class="px-md py-2 font-medium">Anjali Thapa</td>
+<td class="px-md py-2 text-secondary text-xs">Head Office → Lalitpur</td>
+<td class="px-md py-2 text-xs">10:45 - 14:00</td>
+<td class="px-md py-2 font-mono-data text-xs">BA 3 CHA 5592 (Hyundai Kona)</td>
+<td class="px-md py-2 text-xs">Ram Nepali</td>
+<td class="px-md py-2">
+<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-tertiary-fixed text-on-tertiary-fixed-variant">ONGOING</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-lowest transition-colors cursor-pointer">
+<td class="px-md py-2 font-medium">Prakash Shah</td>
+<td class="px-md py-2 text-secondary text-xs">Devi Tower→ Baluwatar</td>
+<td class="px-md py-2 text-xs">08:00 - 09:30</td>
+<td class="px-md py-2 font-mono-data text-xs">BA 1 CHA 8821 (Suzuki Wagon R)</td>
+<td class="px-md py-2 text-xs">Deepak Pun</td>
+<td class="px-md py-2">
+<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#e0f2f1] text-[#00695c]">COMPLETED</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-2 border-t border-outline-variant bg-surface-container-lowest text-center">
+<a class="text-xs font-bold text-primary hover:underline" href="#">View all bookings</a>
+</div>
+</div>
+<!-- Vehicles in Maintenance Mini-list -->
+<div class="bg-surface border border-outline-variant rounded-lg overflow-hidden">
+<div class="px-md py-sm border-b border-outline-variant bg-surface-container-low">
+<h2 class="text-label-sm font-bold text-primary uppercase tracking-wider">In Maintenance</h2>
+</div>
+<div class="p-md space-y-sm">
+<div class="flex items-center justify-between py-xs border-b border-outline-variant last:border-0">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary text-sm">handyman</span>
+<span class="font-mono-data text-sm">BA 2 CHA 3421 (Swift)</span>
+</div>
+<span class="text-xs text-on-surface-variant">Accident</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Side Panel: Renewals & Alerts -->
+<div class="col-span-1 space-y-md">
+<!-- Renewals Due Soon Panel -->
+<div class="bg-surface border border-outline-variant rounded-lg overflow-hidden flex flex-col">
+<div class="px-md py-sm border-b border-outline-variant bg-surface-container-low flex justify-between items-center">
+<h2 class="text-label-sm font-bold text-primary uppercase tracking-wider">Renewals Due</h2>
+</div>
+<div class="p-md space-y-md">
+<div class="flex flex-col gap-1 border-b border-outline-variant pb-md last:border-0 last:pb-0">
+<div class="flex justify-between items-center">
+<span class="font-mono-data text-xs font-bold text-primary">BA 3 CHA 2021 (Hyundai Kona)</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-error-container text-error">EXPIRED</span>
+</div>
+<div class="flex justify-between items-end">
+<div class="text-xs text-secondary">Insurance</div>
+<div class="text-xs font-medium">May 15, 2024</div>
+</div>
+</div>
+<div class="flex flex-col gap-1 border-b border-outline-variant pb-md last:border-0 last:pb-0">
+<div class="flex justify-between items-center">
+<span class="font-mono-data text-xs font-bold text-primary">BA 2 CHA 8801 (Suzuki Wagon R)</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-tertiary-fixed text-on-tertiary-fixed-variant">EXPIRING SOON</span>
+</div>
+<div class="flex justify-between items-end">
+<div class="text-xs text-secondary">Bill Book</div>
+<div class="text-xs font-medium">June 02, 2024</div>
+</div>
+</div>
+<div class="flex flex-col gap-1 border-b border-outline-variant pb-md last:border-0 last:pb-0">
+<div class="flex justify-between items-center">
+<span class="font-mono-data text-xs font-bold text-primary">BA 4 CHA 4432 (Swift)</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-tertiary-fixed text-on-tertiary-fixed-variant">EXPIRING SOON</span>
+</div>
+<div class="flex justify-between items-end">
+<div class="text-xs text-secondary">Green Sticker</div>
+<div class="text-xs font-medium">June 10, 2024</div>
+</div>
+</div>
+</div>
+<div class="p-2 border-t border-outline-variant bg-surface-container-lowest text-center mt-auto">
+<a class="text-xs font-bold text-primary hover:underline" href="#">View all renewals</a>
+</div>
+</div>
+<!-- Action Shortcut Card -->
+<div class="bg-primary-container p-md rounded-lg text-on-primary-container">
+<h3 class="text-label-sm font-bold mb-sm">Quick Actions</h3>
+<div class="grid grid-cols-2 gap-sm">
+<button class="bg-surface text-primary px-sm py-2 rounded text-[11px] font-bold flex flex-col items-center gap-1 border border-outline-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">add_task</span>
+                            New Booking
+                        </button>
+<button class="bg-surface text-primary px-sm py-2 rounded text-[11px] font-bold flex flex-col items-center gap-1 border border-outline-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">post_add</span>
+                            Log Fuel
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+
+
+
+</body></html>

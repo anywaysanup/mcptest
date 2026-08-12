@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Driver Detail - Kinetic Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fbf8fa;
+        }
+        .sidebar-accent {
+            border-left: 3px solid #b7c8e1; /* Info Blue equivalent from secondary-fixed-dim */
+        }
+    </style>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"surface-container": "#e7eff7", "on-tertiary-fixed-variant": "#703800", primary: "#006877", tertiary: "#914c07", "secondary-fixed-dim": "#c6c6c7", "on-secondary-container": "#616363", "primary-fixed": "#a4eeff", "on-primary-container": "#00323a", "surface-container-low": "#edf4fc", "on-surface": "#151d22", "inverse-on-surface": "#eaf2f9", error: "#ba1a1a", secondary: "#5d5f5f", "on-surface-variant": "#3d494c", "on-primary-fixed": "#001f25", "inverse-primary": "#62d6ed", "tertiary-fixed": "#ffdcc4", "on-tertiary-fixed": "#2f1400", "on-secondary-fixed": "#1a1c1c", "tertiary-fixed-dim": "#ffb781", surface: "#f6faff", "outline-variant": "#bcc9cc", "on-error": "#ffffff", "inverse-surface": "#2a3137", "surface-variant": "#dce3eb", "surface-tint": "#006877", "secondary-container": "#dfe0e0", background: "#f6faff", "primary-container": "#17a2b8", "on-tertiary": "#ffffff", "on-error-container": "#93000a", "tertiary-container": "#d2803c", "surface-container-high": "#e1e9f1", "secondary-fixed": "#e2e2e2", "primary-fixed-dim": "#62d6ed", "on-tertiary-container": "#492200", "on-primary-fixed-variant": "#004e5a", "on-secondary-fixed-variant": "#454747", "surface-bright": "#f6faff", outline: "#6d797c", "on-secondary": "#ffffff", "on-background": "#151d22", "surface-container-highest": "#dce3eb", "on-primary": "#ffffff", "error-container": "#ffdad6", "surface-dim": "#d3dbe3", "surface-container-lowest": "#ffffff"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, spacing: {xl: "32px", lg: "24px", sm: "8px", xs: "4px", gutter: "20px", "container-max": "1440px", base: "4px", md: "16px"}, fontFamily: {"mono-data": ["Inter"], "headline-lg": ["Inter"], "label-sm": ["Inter"], display: ["Inter"], "body-lg": ["Inter"], "headline-md": ["Inter"], "body-md": ["Inter"], headline: ["Inter"], body: ["Inter"], label: ["Inter"]}, fontSize: {"mono-data": ["13px", {lineHeight: "18px", fontWeight: "500"}], "headline-lg": ["24px", {lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600"}], "label-sm": ["12px", {lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600"}], display: ["36px", {lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700"}], "body-lg": ["16px", {lineHeight: "24px", fontWeight: "400"}], "headline-md": ["18px", {lineHeight: "24px", fontWeight: "600"}], "body-md": ["14px", {lineHeight: "20px", fontWeight: "400"}]}}}};</script>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-full w-[260px] bg-primary flex flex-col py-md z-50">
+<div class="px-lg mb-xl">
+<h1 class="text-headline-md font-headline-md font-bold text-on-primary">Kinetic Ledger</h1>
+<p class="text-label-sm font-label-sm text-on-primary-container tracking-wider">Fleet Management</p>
+</div>
+<nav class="flex-1 space-y-xs">
+<!-- Dashboard -->
+<a class="flex items-center px-lg py-md text-on-primary-fixed-variant hover:bg-on-primary-fixed-variant hover:text-on-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-md">dashboard</span>
+<span class="text-label-sm font-label-sm">Dashboard</span>
+</a>
+<!-- Bookings -->
+<a class="flex items-center px-lg py-md text-on-primary-fixed-variant hover:bg-on-primary-fixed-variant hover:text-on-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-md">event_note</span>
+<span class="text-label-sm font-label-sm">Bookings</span>
+</a>
+<!-- Vehicles -->
+<a class="flex items-center px-lg py-md text-on-primary-fixed-variant hover:bg-on-primary-fixed-variant hover:text-on-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-md">directions_car</span>
+<span class="text-label-sm font-label-sm">Vehicles</span>
+</a>
+<!-- Drivers (ACTIVE) -->
+<a class="flex items-center px-lg py-md text-secondary-fixed-dim font-bold border-l-2 border-secondary-fixed-dim bg-on-primary-fixed-variant/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-md">person</span>
+<span class="text-label-sm font-label-sm">Drivers</span>
+</a>
+<!-- Renewals -->
+<a class="flex items-center px-lg py-md text-on-primary-fixed-variant hover:bg-on-primary-fixed-variant hover:text-on-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-md">history</span>
+<span class="text-label-sm font-label-sm">Renewals</span>
+</a>
+<!-- Reports -->
+<a class="flex items-center px-lg py-md text-on-primary-fixed-variant hover:bg-on-primary-fixed-variant hover:text-on-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mr-md">analytics</span>
+<span class="text-label-sm font-label-sm">Reports</span>
+</a>
+</nav>
+<div class="px-lg pt-md border-t border-on-primary-fixed-variant/20">
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed-dim flex items-center justify-center text-primary font-bold">AL</div>
+<div class="overflow-hidden">
+<p class="text-label-sm font-label-sm text-on-primary truncate">Admin Profile</p>
+<p class="text-[10px] text-on-primary-container truncate">Fleet Manager</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Top App Bar -->
+<header class="fixed top-0 right-0 left-0 ml-[260px] bg-surface h-16 flex justify-between items-center px-lg border-b border-outline-variant z-40">
+<div class="flex items-center gap-md w-1/2">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full pl-xl pr-md py-xs bg-surface-container-low border border-outline-variant rounded-lg text-body-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Search vehicle or driver..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<button class="text-on-surface-variant hover:bg-surface-container-low p-sm rounded-full transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-container-low p-sm rounded-full transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-sm cursor-pointer hover:bg-surface-container-low px-sm py-xs rounded-lg transition-colors">
+<img class="w-8 h-8 rounded-full border border-outline-variant object-cover" data-alt="A professional headshot of a fleet administrator in a clean office setting, soft natural lighting, high-fidelity corporate photography style, neutral gray background, modern professional attire." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLi7QZzVbmdPHwjjTVxgQ9L4DIY_BQvrvnRHHhfoTMwdjo6Qbydl5kFtWj8ibhEgblqcf3Zoeu5v8IelkWuJExoA89lT4t2gh0LOLLv65vsm4NQiqz7ta8iO_EN5UHoDFfrAD_FnXOK5VQVRO9kjGdPEu0iElCPLUFIU1BNGky-z-ArAOhN5XMeEIO_iJJ-8Pd4_zUXZvLwA1oo-vz1VsigSE-o5l60b6HqT0ljUz4WKLMaH_0cPCI"/>
+<span class="material-symbols-outlined text-on-surface-variant">expand_more</span>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-[260px] pt-16 min-h-screen">
+<div class="p-lg max-w-[1200px] mx-auto">
+<!-- Breadcrumbs -->
+<nav class="flex items-center space-x-sm text-on-surface-variant mb-lg">
+<a class="text-label-sm font-label-sm hover:text-primary transition-colors uppercase tracking-widest" href="#">Drivers</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-label-sm font-label-sm text-on-surface font-bold uppercase tracking-widest">Hari Prasad</span>
+</nav>
+<!-- Profile Header -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-lg mb-xl">
+<div class="flex items-center gap-lg">
+<div class="w-24 h-24 rounded-xl border border-outline-variant bg-white p-1 overflow-hidden">
+<img class="w-full h-full object-cover rounded-lg" data-alt="A portrait of an experienced professional driver named Hari Prasad, wearing a clean uniform, friendly and authoritative expression, warm studio lighting with a clean minimalist aesthetic and subtle slate-colored background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt-6oxJyDvrkG4aEEeUwgk5TtEOsZcKlf49YX6Zk8DURpDnGWCfIXlR5_6hIUP33aP50bLfJE2ivKn1GrThJ-cq8TdbmsmBdWdzvQ7k6rtpcy5o3T6ZHr-rcb4hDc2i5hYDge8KlwSmn0r7NqenTTPyHSzEr0Z3GIL304MVKRDPOB4zGQE5pnU4rQhXY6vL4VRX1EfhebdK9qJzl4k3lu0le3L7dFRuJeaOmkB9S7bAYKy5Sbu-LZx"/>
+</div>
+<div>
+<div class="flex items-center gap-md mb-xs">
+<h2 class="text-display font-display text-on-surface">Hari Prasad</h2>
+<span class="px-md py-xs bg-green-100 text-green-800 text-label-sm font-label-sm rounded-full border border-green-200">
+                                Available
+                            </span>
+</div>
+<p class="text-body-md text-on-surface-variant flex items-center gap-sm">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+                            Lead Driver • Employee ID: KL-9920
+                        </p>
+</div>
+</div>
+<div class="flex gap-md">
+<button class="bg-primary text-on-primary px-lg py-sm rounded-lg text-label-sm font-label-sm flex items-center gap-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                        Schedule Shift
+                    </button>
+<button class="border border-outline-variant bg-white text-on-surface-variant px-lg py-sm rounded-lg text-label-sm font-label-sm flex items-center gap-sm hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[18px]">print</span>
+                        Export Report
+                    </button>
+</div>
+</section>
+<!-- Bento Grid Layout for Driver Info -->
+<div class="grid grid-cols-12 gap-gutter mb-xl">
+<!-- Contact Info Card -->
+<div class="col-span-12 lg:col-span-4 bg-white border border-outline-variant rounded-xl p-lg">
+<h3 class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest mb-md">Contact Information</h3>
+<div class="space-y-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">mail</span>
+</div>
+<div>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold">Email</p>
+<p class="text-body-md font-mono-data">hari.prasad@kineticledger.com</p>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">call</span>
+</div>
+<div>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold">Phone</p>
+<p class="text-body-md font-mono-data">+977 9841-XXXXXX</p>
+</div>
+</div>
+</div>
+</div>
+<!-- License Details Card -->
+<div class="col-span-12 lg:col-span-4 bg-white border border-outline-variant rounded-xl p-lg">
+<h3 class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-widest mb-md">License Details</h3>
+<div class="space-y-md">
+<div class="flex items-center justify-between">
+<p class="text-body-md text-on-surface-variant">License Number</p>
+<p class="text-body-md font-mono-data">01-09-00045231</p>
+</div>
+<div class="flex items-center justify-between">
+<p class="text-body-md text-on-surface-variant">Class</p>
+<p class="text-body-md font-mono-data">A, B, K</p>
+</div>
+<div class="flex items-center justify-between">
+<p class="text-body-md text-on-surface-variant">Expiry</p>
+<p class="text-body-md font-mono-data text-on-surface">2026-05-12</p>
+</div>
+</div>
+</div>
+<!-- Quick Stats Card -->
+<div class="col-span-12 lg:col-span-4 bg-primary text-on-primary rounded-xl p-lg flex flex-col justify-between">
+<div>
+<h3 class="text-label-sm font-label-sm text-on-primary-container uppercase tracking-widest mb-md">Performance Score</h3>
+<div class="flex items-end gap-sm">
+<span class="text-[48px] font-display leading-none">94</span>
+<span class="text-headline-md font-headline-md text-on-primary-container pb-1">/100</span>
+</div>
+</div>
+<div class="flex items-center gap-md mt-md">
+<div class="flex-1 h-2 bg-on-primary-fixed-variant rounded-full overflow-hidden">
+<div class="w-[94%] h-full bg-secondary-fixed-dim"></div>
+</div>
+<span class="text-label-sm font-label-sm text-secondary-fixed-dim">Excellent</span>
+</div>
+</div>
+</div>
+<!-- Assignment History Section -->
+<section class="bg-white border border-outline-variant rounded-xl overflow-hidden shadow-sm">
+<div class="px-lg py-md border-b border-outline-variant bg-surface-container-low flex justify-between items-center">
+<h3 class="text-headline-md font-headline-md text-on-surface">Assignment History</h3>
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">filter_list</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Filter by Date</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="px-lg py-sm text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Date</th>
+<th class="px-lg py-sm text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Vehicle Plate</th>
+<th class="px-lg py-sm text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Route</th>
+<th class="px-lg py-sm text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Requestor</th>
+<th class="px-lg py-sm text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md text-body-md font-mono-data text-on-surface">2023-11-04</td>
+<td class="px-lg py-md">
+<div class="flex items-center gap-sm">
+<span class="font-mono-data text-body-md font-bold px-sm py-xs bg-surface-container rounded border border-outline-variant">BA 2 CHA 3421</span>
+</div>
+</td>
+<td class="px-lg py-md text-body-md text-on-surface">
+<div class="flex items-center gap-xs">
+<span>HO</span>
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">trending_flat</span>
+<span>Airport</span>
+</div>
+</td>
+<td class="px-lg py-md text-body-md text-on-surface">Sabin Gautam</td>
+<td class="px-lg py-md text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md text-body-md font-mono-data text-on-surface">2023-11-03</td>
+<td class="px-lg py-md">
+<div class="flex items-center gap-sm">
+<span class="font-mono-data text-body-md font-bold px-sm py-xs bg-surface-container rounded border border-outline-variant">BA 1 PA 1234</span>
+<!-- EV Priority Tag -->
+<span class="flex items-center gap-xs px-sm py-[2px] bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded uppercase">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">bolt</span> EV
+                                        </span>
+</div>
+</td>
+<td class="px-lg py-md text-body-md text-on-surface">
+<div class="flex items-center gap-xs">
+<span>Baneshwor</span>
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">trending_flat</span>
+<span>Krishna Tower</span>
+</div>
+</td>
+<td class="px-lg py-md text-body-md text-on-surface">Anjali Thapa</td>
+<td class="px-lg py-md text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md text-body-md font-mono-data text-on-surface">2023-11-02</td>
+<td class="px-lg py-md">
+<div class="flex items-center gap-sm">
+<span class="font-mono-data text-body-md font-bold px-sm py-xs bg-surface-container rounded border border-outline-variant">BA 3 HA 5562</span>
+</div>
+</td>
+<td class="px-lg py-md text-body-md text-on-surface">
+<div class="flex items-center gap-xs">
+<span>Devi Tower</span>
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">trending_flat</span>
+<span>HO</span>
+</div>
+</td>
+<td class="px-lg py-md text-body-md text-on-surface">Prakash Shah</td>
+<td class="px-lg py-md text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-lg py-md bg-surface-container-low/50 flex justify-between items-center border-t border-outline-variant">
+<p class="text-label-sm font-label-sm text-on-surface-variant">Showing 3 of 124 records</p>
+<div class="flex items-center gap-sm">
+<button class="p-xs rounded border border-outline-variant bg-white text-on-surface-variant disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<span class="text-label-sm font-label-sm text-on-surface">1</span>
+<button class="p-xs rounded border border-outline-variant bg-white text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<script>
+        // Simple micro-interaction for hover states
+        document.querySelectorAll('tr').forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.classList.add('bg-slate-50');
+            });
+            row.addEventListener('mouseleave', () => {
+                row.classList.remove('bg-slate-50');
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kinetic Ledger | Driver Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"surface-container": "#e7eff7", "on-tertiary-fixed-variant": "#703800", primary: "#006877", tertiary: "#914c07", "secondary-fixed-dim": "#c6c6c7", "on-secondary-container": "#616363", "primary-fixed": "#a4eeff", "on-primary-container": "#00323a", "surface-container-low": "#edf4fc", "on-surface": "#151d22", "inverse-on-surface": "#eaf2f9", error: "#ba1a1a", secondary: "#5d5f5f", "on-surface-variant": "#3d494c", "on-primary-fixed": "#001f25", "inverse-primary": "#62d6ed", "tertiary-fixed": "#ffdcc4", "on-tertiary-fixed": "#2f1400", "on-secondary-fixed": "#1a1c1c", "tertiary-fixed-dim": "#ffb781", surface: "#f6faff", "outline-variant": "#bcc9cc", "on-error": "#ffffff", "inverse-surface": "#2a3137", "surface-variant": "#dce3eb", "surface-tint": "#006877", "secondary-container": "#dfe0e0", background: "#f6faff", "primary-container": "#17a2b8", "on-tertiary": "#ffffff", "on-error-container": "#93000a", "tertiary-container": "#d2803c", "surface-container-high": "#e1e9f1", "secondary-fixed": "#e2e2e2", "primary-fixed-dim": "#62d6ed", "on-tertiary-container": "#492200", "on-primary-fixed-variant": "#004e5a", "on-secondary-fixed-variant": "#454747", "surface-bright": "#f6faff", outline: "#6d797c", "on-secondary": "#ffffff", "on-background": "#151d22", "surface-container-highest": "#dce3eb", "on-primary": "#ffffff", "error-container": "#ffdad6", "surface-dim": "#d3dbe3", "surface-container-lowest": "#ffffff"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, spacing: {xl: "32px", lg: "24px", sm: "8px", xs: "4px", gutter: "20px", "container-max": "1440px", base: "4px", md: "16px"}, fontFamily: {"mono-data": ["Inter"], "headline-lg": ["Inter"], "label-sm": ["Inter"], display: ["Inter"], "headline-lg-mobile": ["Inter"], "body-lg": ["Inter"], "headline-md": ["Inter"], "body-md": ["Inter"], headline: ["Inter"], body: ["Inter"], label: ["Inter"]}, fontSize: {"mono-data": ["13px", {lineHeight: "18px", fontWeight: "500"}], "headline-lg": ["24px", {lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600"}], "label-sm": ["12px", {lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600"}], display: ["36px", {lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700"}], "headline-lg-mobile": ["20px", {lineHeight: "28px", fontWeight: "600"}], "body-lg": ["16px", {lineHeight: "24px", fontWeight: "400"}], "headline-md": ["18px", {lineHeight: "24px", fontWeight: "600"}], "body-md": ["14px", {lineHeight: "20px", fontWeight: "400"}]}}}};</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        /* Custom scrollbar for data-heavy views */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c5c6cd;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #75777d;
+        }
+
+        .driver-table-row:hover {
+            background-color: #f8fafc; /* Slate-50 fallback */
+        }
+
+        .status-badge-available {
+            background-color: rgba(34, 197, 94, 0.1);
+            color: #15803d;
+        }
+
+        .status-badge-ontrip {
+            background-color: rgba(245, 158, 11, 0.1);
+            color: #b45309;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- Desktop SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-[260px] bg-primary flex flex-col py-md z-50">
+<div class="px-lg mb-xl">
+<h1 class="text-headline-md font-headline-md font-bold text-on-primary">Kinetic Ledger</h1>
+<p class="text-label-sm font-label-sm text-on-primary-container opacity-80 uppercase tracking-widest">Fleet Management</p>
+</div>
+<nav class="flex-1 space-y-xs px-sm">
+<a class="flex items-center gap-md px-md py-sm rounded transition-colors duration-200 text-on-primary-fixed-variant hover:bg-on-primary-fixed-variant hover:text-on-primary" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-label-sm font-label-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded transition-colors duration-200 text-on-primary-fixed-variant hover:bg-on-primary-fixed-variant hover:text-on-primary" href="#">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span class="text-label-sm font-label-sm">Bookings</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded transition-colors duration-200 text-on-primary-fixed-variant hover:bg-on-primary-fixed-variant hover:text-on-primary" href="#">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+<span class="text-label-sm font-label-sm">Vehicles</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded transition-colors duration-200 text-secondary-fixed-dim font-bold border-l-2 border-secondary-fixed-dim bg-on-primary-fixed-variant/50" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-sm font-label-sm">Drivers</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded transition-colors duration-200 text-on-primary-fixed-variant hover:bg-on-primary-fixed-variant hover:text-on-primary" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="text-label-sm font-label-sm">Renewals</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded transition-colors duration-200 text-on-primary-fixed-variant hover:bg-on-primary-fixed-variant hover:text-on-primary" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="text-label-sm font-label-sm">Reports</span>
+</a>
+</nav>
+<div class="mt-auto px-lg pt-md border-t border-on-primary-fixed-variant/20 flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed font-bold">
+                AD
+            </div>
+<div>
+<p class="text-label-sm font-label-sm text-on-primary">Admin Profile</p>
+<p class="text-[10px] text-on-primary-container">Fleet Controller</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[260px] min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-lg py-sm bg-surface border-b border-outline-variant h-16">
+<div class="flex items-center gap-lg">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="bg-surface-container-low border-none rounded-lg pl-10 pr-md py-2 w-64 text-body-md focus:ring-2 focus:ring-primary" placeholder="Search across fleet..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors relative">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Driver Content -->
+<section class="p-lg flex-1">
+<div class="max-w-container-max mx-auto">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md mb-lg">
+<div>
+<h2 class="text-display font-display text-primary mb-xs">Drivers</h2>
+<nav class="flex text-label-sm text-on-surface-variant gap-xs">
+<span>Fleet Management</span>
+<span>/</span>
+<span class="text-primary font-bold">Drivers List</span>
+</nav>
+</div>
+<div class="flex items-center gap-sm">
+<!-- Filters and Search -->
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors" data-icon="person_search">person_search</span>
+<input class="bg-white border border-slate-200 rounded-lg pl-10 pr-md py-2.5 w-72 text-body-md focus:border-slate-800 focus:ring-0 transition-all outline-none" placeholder="Search by driver name" type="text"/>
+</div>
+<div class="flex items-center bg-white border border-slate-200 rounded-lg px-xs py-xs">
+<button class="px-md py-1.5 rounded text-label-sm font-label-sm bg-primary text-white">All</button>
+<button class="px-md py-1.5 rounded text-label-sm font-label-sm text-on-surface-variant hover:bg-surface-container transition-colors">Available</button>
+<button class="px-md py-1.5 rounded text-label-sm font-label-sm text-on-surface-variant hover:bg-surface-container transition-colors">On Trip</button>
+</div>
+<button class="flex items-center gap-xs bg-primary text-white px-lg py-2.5 rounded shadow-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined !text-[18px]" data-icon="add">add</span>
+<span class="text-label-sm font-label-sm uppercase tracking-wide">Add Driver</span>
+</button>
+</div>
+</div>
+<!-- Main Table Container -->
+<div class="bg-white rounded-xl border border-outline-variant overflow-hidden shadow-sm">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant">
+<th class="px-lg py-md text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Driver Name</th>
+<th class="px-lg py-md text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Status Badge</th>
+<th class="px-lg py-md text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Current Activity</th>
+<th class="px-lg py-md text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Driver 1 -->
+<tr class="driver-table-row transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional studio portrait of a middle-aged South Asian man with a friendly smile, wearing a neat navy blue uniform. The lighting is soft and corporate, set against a clean, light gray background that emphasizes a professional fleet management atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAJlqOHyQMRXkdv8LkhcDP1JCXTpwa4jXg2-2xtKR2Hf7_vUP_IpY0kzgOEOoq0I3DknMH7bDMJbJJWTvRZ_VVCEoUWr4ryCk6yEFF-6Mqxy9ExJh0tLiNR-jyWDdoL5DDD1YwmjXScOHBvSzucMcitq5fcjBaVyEoz8inRwnhjzyBjUz60ZbLfBwYypX_1nqRuV2XN2kkqsUBvzigWNWFO0U672-0BHCK_2QXxorSwgXP8ErzboNZ"/>
+</div>
+<div>
+<p class="font-headline-md text-primary group-hover:text-primary-container">Hari Prasad</p>
+<p class="text-label-sm text-on-surface-variant">ID: DRV-0982</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-md">
+<span class="px-sm py-1 rounded-full text-label-sm font-label-sm status-badge-available flex items-center w-fit gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-green-600"></span>
+                                        Available
+                                    </span>
+</td>
+<td class="px-lg py-md">
+<span class="text-body-md text-outline italic">No active assignments</span>
+</td>
+<td class="px-lg py-md text-right">
+<button class="text-label-sm font-label-sm text-primary hover:underline underline-offset-4">View Profile</button>
+</td>
+</tr>
+<!-- Driver 2 -->
+<tr class="driver-table-row transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A portrait of a mature male driver with a professional demeanor, looking directly at the camera with confidence. He is in his early 40s, with short black hair, wearing a high-visibility vest over a white collared shirt. High-fidelity, clean photography for a logistics management interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHEXfGIqPvQaY4gJjpo-5QKZBKNVS_lWHkesh4-JiJJaoFhQWpFaCqcTzQlcsuRfkLOEklOGQTgfuP8FYN7UUIzRUMRoVZ8CL81gA7_7u6uieON53rn931crVnL1ei3tgrJ3epa0qYWvH9IXXPy0SNgaO_pS_APyCGYtG6UdpzX_ERSc9VRDjBmLJPMVompscmVUlJZSvHpm_VVZVqjMrQdAyfQozmkWktxiGQVWMPqeyUaj9naD93"/>
+</div>
+<div>
+<p class="font-headline-md text-primary group-hover:text-primary-container">Ram Bahadur</p>
+<p class="text-label-sm text-on-surface-variant">ID: DRV-1124</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-md">
+<span class="px-sm py-1 rounded-full text-label-sm font-label-sm status-badge-ontrip flex items-center w-fit gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-600 animate-pulse"></span>
+                                        On Trip
+                                    </span>
+</td>
+<td class="px-lg py-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined !text-[16px] text-on-surface-variant" data-icon="local_shipping">local_shipping</span>
+<span class="text-mono-data font-mono-data bg-surface-container-low px-1 rounded">BA 2 CHA 3421</span>
+<div class="bg-blue-100 text-blue-700 px-2 py-0.5 rounded text-[10px] font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined !text-[12px]" data-icon="bolt">bolt</span>
+                                                EV
+                                            </div>
+</div>
+<p class="text-body-md text-on-surface-variant mt-1">HO <span class="text-outline">→</span> Airport</p>
+</div>
+</td>
+<td class="px-lg py-md text-right">
+<button class="text-label-sm font-label-sm text-primary hover:underline underline-offset-4">View Profile</button>
+</td>
+</tr>
+<!-- Driver 3 -->
+<tr class="driver-table-row transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a female driver in her late 30s, looking professional and capable. She has her hair neatly tied back and is wearing a company-branded polo shirt. The aesthetic is clean, well-lit, and minimalist, suited for a high-utility administrative dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkG5eHylacjCE2NJm6v55dIRrkPre2eiuupcrNJFKtKFsql_HxU9gA9_XViJ8yQyVlqt0K-v9r2jRxCkr7OMHzcqA2PqPrYjT0knHkz92m97ft01N8GSVtUaJBOlJUsHWX707yZXpz5r0Eod3Fwk7otqJ9OrKK6DCha3LwdREKtlPKCOelMYFSr0VNFQbmnvRP0hSb6P8-YkghQKy5NESzdcY6p8obM7IiGihI2B_8T2k02A8Cnsi3"/>
+</div>
+<div>
+<p class="font-headline-md text-primary group-hover:text-primary-container">Sita Thapa</p>
+<p class="text-label-sm text-on-surface-variant">ID: DRV-0887</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-md">
+<span class="px-sm py-1 rounded-full text-label-sm font-label-sm status-badge-available flex items-center w-fit gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-green-600"></span>
+                                        Available
+                                    </span>
+</td>
+<td class="px-lg py-md">
+<span class="text-body-md text-outline italic">No active assignments</span>
+</td>
+<td class="px-lg py-md text-right">
+<button class="text-label-sm font-label-sm text-primary hover:underline underline-offset-4">View Profile</button>
+</td>
+</tr>
+<!-- Driver 4 -->
+<tr class="driver-table-row transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A portrait of a young adult male driver with a focused expression, wearing a high-utility industrial jacket. He is standing against a backdrop of a modern warehouse, blurred to keep focus on the subject. The color palette is composed of slates and whites for a mission-critical logistics feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvVBHo13_dGPKCVu2KPIz6t2jDrOm8nfQRkZlDCs6Nf0qe5bnYAiy_o6BB6OCBuPx34vcM2q3-ndK9pn2_LmfSsNq217MVNHUSmdQwLJwXME5MsKpg-gkCzK0lUrEQgdRiB_nAcqaZTFqG_f6DkUyvoCUN5bA6QoP_kTUywiSQZ3H4mgm1RfkB75qQB-jSfySJRj21oKttYB3n2isBlFjkQYyEJF0i4vCtJIAePCL28B6b6vG9DlRK"/>
+</div>
+<div>
+<p class="font-headline-md text-primary group-hover:text-primary-container">Bikash Gurung</p>
+<p class="text-label-sm text-on-surface-variant">ID: DRV-2023</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-md">
+<span class="px-sm py-1 rounded-full text-label-sm font-label-sm status-badge-ontrip flex items-center w-fit gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-600 animate-pulse"></span>
+                                        On Trip
+                                    </span>
+</td>
+<td class="px-lg py-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined !text-[16px] text-on-surface-variant" data-icon="local_shipping">local_shipping</span>
+<span class="text-mono-data font-mono-data bg-surface-container-low px-1 rounded">BA 3 HA 5562</span>
+</div>
+<p class="text-body-md text-on-surface-variant mt-1">Krishna Tower <span class="text-outline">→</span> Devi Tower</p>
+</div>
+</td>
+<td class="px-lg py-md text-right">
+<button class="text-label-sm font-label-sm text-primary hover:underline underline-offset-4">View Profile</button>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination / Footer -->
+<div class="px-lg py-md bg-surface-container-lowest flex items-center justify-between border-t border-outline-variant">
+<p class="text-label-sm text-on-surface-variant">Showing 4 of 42 drivers</p>
+<div class="flex gap-xs">
+<button class="w-8 h-8 flex items-center justify-center border border-slate-200 rounded text-outline hover:border-primary hover:text-primary transition-colors cursor-not-allowed">
+<span class="material-symbols-outlined !text-[20px]" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center border border-slate-800 bg-slate-800 rounded text-white text-label-sm">1</button>
+<button class="w-8 h-8 flex items-center justify-center border border-slate-200 rounded text-on-surface-variant text-label-sm hover:border-primary transition-colors">2</button>
+<button class="w-8 h-8 flex items-center justify-center border border-slate-200 rounded text-on-surface-variant text-label-sm hover:border-primary transition-colors">3</button>
+<button class="w-8 h-8 flex items-center justify-center border border-slate-200 rounded text-on-surface-variant hover:border-primary hover:text-primary transition-colors">
+<span class="material-symbols-outlined !text-[20px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Secondary Summary Stats (Asymmetric Layout Element) -->
+<div class="grid grid-cols-12 gap-lg mt-lg">
+<div class="col-span-12 lg:col-span-8 bg-surface-container p-lg rounded-xl flex items-center justify-between border border-outline-variant/30">
+<div class="flex items-center gap-xl">
+<div>
+<p class="text-label-sm text-on-surface-variant uppercase mb-1">Total Distance Today</p>
+<p class="text-headline-lg text-primary">1,432 <span class="text-body-md font-normal text-on-surface-variant">KM</span></p>
+</div>
+<div class="h-10 w-px bg-outline-variant"></div>
+<div>
+<p class="text-label-sm text-on-surface-variant uppercase mb-1">Fuel Consumption</p>
+<p class="text-headline-lg text-primary">284.5 <span class="text-body-md font-normal text-on-surface-variant">Ltrs</span></p>
+</div>
+<div class="h-10 w-px bg-outline-variant"></div>
+<div>
+<p class="text-label-sm text-on-surface-variant uppercase mb-1">Active Hours</p>
+<p class="text-headline-lg text-primary">32h 15m</p>
+</div>
+</div>
+<button class="flex items-center gap-sm text-primary font-bold text-label-sm group">
+                            Full Daily Report
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="col-span-12 lg:col-span-4 bg-primary p-lg rounded-xl relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="text-headline-md text-on-primary mb-1">Shift Analytics</h3>
+<p class="text-label-sm text-on-primary-container mb-md">Morning shift efficiency is up 12%</p>
+<button class="bg-secondary-fixed text-on-secondary-fixed px-md py-1.5 rounded text-label-sm font-bold">Review Schedule</button>
+</div>
+<!-- Simple visual abstraction -->
+<div class="absolute right-[-20px] bottom-[-20px] opacity-20 transform rotate-12">
+<span class="material-symbols-outlined !text-[120px] text-white" data-icon="query_stats">query_stats</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="px-lg py-md bg-white border-t border-outline-variant text-center mt-auto">
+<p class="text-label-sm text-outline">© 2024 Kinetic Ledger. All fleet operations are logged and monitored. IP: 192.168.1.104</p>
+</footer>
+</main>
+<!-- Global Interactions Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const rows = document.querySelectorAll('.driver-table-row');
+            rows.forEach(row => {
+                row.addEventListener('click', () => {
+                    // Micro-interaction: visual feedback
+                    row.classList.add('bg-secondary-fixed/10');
+                    setTimeout(() => {
+                        row.classList.remove('bg-secondary-fixed/10');
+                    }, 200);
+                });
+            });
+        });
+    </script>
+</body></html>

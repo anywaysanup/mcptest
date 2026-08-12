@@ -1,0 +1,383 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Reports - VMS Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"surface-dim": "#d3dbe3", "on-secondary": "#ffffff", "on-background": "#151d22", "surface-container-low": "#edf4fc", secondary: "#5d5f5f", "inverse-on-surface": "#eaf2f9", "primary-fixed-dim": "#62d6ed", "surface-tint": "#006877", "on-error-container": "#93000a", "surface-container-lowest": "#ffffff", "on-tertiary": "#ffffff", "on-secondary-container": "#616363", error: "#ba1a1a", "on-error": "#ffffff", "tertiary-fixed": "#ffdcc4", "on-tertiary-fixed-variant": "#703800", "outline-variant": "#bcc9cc", "on-primary-fixed-variant": "#004e5a", "tertiary-fixed-dim": "#ffb781", "secondary-fixed-dim": "#c6c6c7", "on-primary-fixed": "#001f25", "on-primary-container": "#00323a", "on-secondary-fixed-variant": "#454747", "primary-container": "#17a2b8", tertiary: "#914c07", "surface-bright": "#f6faff", "inverse-primary": "#62d6ed", "tertiary-container": "#d2803c", "surface-container": "#e7eff7", outline: "#6d797c", "on-primary": "#ffffff", "surface-variant": "#dce3eb", "secondary-fixed": "#e2e2e2", "on-tertiary-container": "#492200", "error-container": "#ffdad6", "on-tertiary-fixed": "#2f1400", "inverse-surface": "#2a3137", surface: "#f6faff", "on-surface": "#151d22", background: "#f6faff", "surface-container-high": "#e1e9f1", primary: "#006877", "primary-fixed": "#a4eeff", "secondary-container": "#dfe0e0", "surface-container-highest": "#dce3eb", "on-surface-variant": "#3d494c", "on-secondary-fixed": "#1a1c1c"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, spacing: {xl: "32px", sm: "8px", "container-max": "1440px", lg: "24px", xs: "4px", base: "4px", md: "16px", gutter: "20px"}, fontFamily: {"mono-data": ["Inter"], "body-lg": ["Inter"], "headline-lg": ["Inter"], "body-md": ["Inter"], "headline-lg-mobile": ["Inter"], display: ["Inter"], "label-sm": ["Inter"], "headline-md": ["Inter"], headline: ["Inter"], body: ["Inter"], label: ["Inter"]}, fontSize: {"mono-data": ["13px", {lineHeight: "18px", fontWeight: "500"}], "body-lg": ["16px", {lineHeight: "24px", fontWeight: "400"}], "headline-lg": ["24px", {lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600"}], "body-md": ["14px", {lineHeight: "20px", fontWeight: "400"}], "headline-lg-mobile": ["20px", {lineHeight: "28px", fontWeight: "600"}], display: ["36px", {lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700"}], "label-sm": ["12px", {lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600"}], "headline-md": ["18px", {lineHeight: "24px", fontWeight: "600"}]}}}};</script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC; /* Slate-50 as per style guidance */
+        }
+        .sidebar-active-indicator {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background-color: #545f73; /* Using surface-tint as placeholder for Info Blue accent */
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .chart-bar {
+            transition: height 1s ease-in-out;
+        }
+    </style>
+</head>
+<body class="text-on-background">
+<!-- Desktop Sidebar -->
+<aside class="fixed left-0 top-0 h-screen w-[260px] bg-primary flex flex-col py-md border-r border-outline-variant">
+<div class="px-lg mb-xl">
+<h1 class="text-headline-lg font-headline-lg font-bold text-on-primary">VMS Pro</h1>
+<p class="text-label-sm font-label-sm text-on-primary/60">Fleet Management</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Navigation items from JSON -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/70 hover:text-on-primary hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-body-md font-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/70 hover:text-on-primary hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="text-body-md font-body-md">Bookings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/70 hover:text-on-primary hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+<span class="text-body-md font-body-md">Vehicles</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/70 hover:text-on-primary hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person_pin">person_pin</span>
+<span class="text-body-md font-body-md">Drivers</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/70 hover:text-on-primary hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="text-body-md font-body-md">Renewals &amp; Documents</span>
+</a>
+<!-- ACTIVE TAB: Reports -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container/10 border-l-[3px] border-secondary-fixed text-secondary-fixed font-bold transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="bar_chart">bar_chart</span>
+<span class="text-body-md font-body-md">Reports</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-white/10 pt-md">
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/70 hover:text-on-primary hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-label-sm font-label-sm">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary/70 hover:text-on-primary hover:bg-white/5 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="text-label-sm font-label-sm">Support</span>
+</a>
+</div>
+</aside>
+<!-- Top App Bar -->
+<header class="fixed top-0 right-0 w-[calc(100%-260px)] h-16 bg-surface flex justify-between items-center px-lg border-b border-outline-variant z-10">
+<div class="flex items-center gap-md">
+<h2 class="text-headline-md font-headline-md font-black text-primary">Reports</h2>
+</div>
+<div class="flex items-center gap-lg">
+<div class="relative group">
+<div class="flex items-center gap-2 bg-surface-container-low border border-outline-variant px-md py-sm rounded transition-all duration-150 cursor-pointer hover:bg-surface-container">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md w-48" placeholder="Search data..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container p-2 rounded transition-all" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container p-2 rounded transition-all" data-icon="settings">settings</button>
+<div class="flex items-center gap-sm ml-sm pl-md border-l border-outline-variant">
+<div class="w-8 h-8 rounded-full bg-primary-fixed-dim flex items-center justify-center">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A professional headshot of a middle-aged fleet administrator with a friendly expression. He is wearing a dark navy blazer over a crisp white shirt, set against a blurred office background with soft cinematic lighting. The aesthetic is clean, high-fidelity, and authoritative, consistent with a professional enterprise management dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiVcxOZuU-6DtSRzB7UK9lpgc_wtCmEvMZIzpSOFr9C5G7E2x-BKJ02lHrZMKHfqOzNzKz2K8tCeAoX6EyUibLuGtZAL5dO1Dhj-59vgXHAd6orIHY-36ryxcga80tuZ-ce9epfwOj6zL94ONzvdN438vPXzKx4WWdyzMbVrI3KSslLPqqlvTbRhs8HYpWpK9x3dxDZKHlPsgFQ3ZmMHcCsPujLJhYXb-CrzjggXFsbMqAGq2rbH2m">
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[260px] pt-16 min-h-screen">
+<div class="p-lg space-y-lg">
+<!-- Filters Section -->
+<div class="bg-white border border-outline-variant p-md rounded-lg flex flex-wrap items-center justify-between gap-md">
+<div class="flex items-center gap-md">
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-outline mb-1">Date Range</span>
+<div class="flex border border-outline-variant rounded overflow-hidden">
+<button class="px-md py-1.5 text-label-sm font-label-sm bg-primary text-on-primary">This Month</button>
+<button class="px-md py-1.5 text-label-sm font-label-sm text-on-surface-variant hover:bg-surface-container transition-colors border-l border-outline-variant">Last Month</button>
+<button class="px-md py-1.5 text-label-sm font-label-sm text-on-surface-variant hover:bg-surface-container transition-colors border-l border-outline-variant flex items-center gap-1">
+                                Custom <span class="material-symbols-outlined text-[16px]" data-icon="calendar_month">calendar_month</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-outline mb-1">Vehicle Type</span>
+<select class="bg-surface-container-low border border-outline-variant rounded px-md py-1.5 text-body-md focus:ring-primary focus:border-primary">
+<option>All Vehicles</option>
+<option>Electric (EV)</option>
+<option>Non-Electric</option>
+</select>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="flex items-center gap-2 bg-white border border-outline-variant px-md py-2 rounded text-label-sm font-label-sm text-on-surface-variant hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="file_download">file_download</span> Export PDF
+                    </button>
+<button class="flex items-center gap-2 bg-primary text-on-primary px-md py-2 rounded text-label-sm font-label-sm hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="refresh">refresh</span> Update Report
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Content -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Chart Section: Distance Travelled -->
+<section class="col-span-12 lg:col-span-8 bg-white border border-outline-variant rounded-lg p-lg flex flex-col">
+<div class="flex items-center justify-between mb-xl">
+<div>
+<h3 class="text-headline-md font-headline-md text-primary">Distance Travelled by Vehicle</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">Top 8 active vehicles for the current period (km)</p>
+</div>
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-outline">
+<div class="w-3 h-3 bg-secondary rounded-xs"></div> Total Km
+                        </div>
+</div>
+<div class="flex-1 flex items-end justify-between gap-4 h-64 pt-md border-b border-outline-variant mb-md px-md">
+<!-- Bar Chart Representation -->
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full max-w-[40px] bg-secondary-container rounded-t-xs hover:bg-secondary transition-all chart-bar" style="height: 85%;"></div>
+<span class="mt-2 text-label-sm font-label-sm text-outline -rotate-45 origin-top-left translate-y-2">BA 2 CHA 9082</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full max-w-[40px] bg-secondary-container rounded-t-xs hover:bg-secondary transition-all chart-bar" style="height: 60%;"></div>
+<span class="mt-2 text-label-sm font-label-sm text-outline -rotate-45 origin-top-left translate-y-2">BA 3 HA 4412</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full max-w-[40px] bg-secondary-container rounded-t-xs hover:bg-secondary transition-all chart-bar" style="height: 95%;"></div>
+<span class="mt-2 text-label-sm font-label-sm text-outline -rotate-45 origin-top-left translate-y-2">BA 1 PA 1102</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full max-w-[40px] bg-secondary-container rounded-t-xs hover:bg-secondary transition-all chart-bar" style="height: 40%;"></div>
+<span class="mt-2 text-label-sm font-label-sm text-outline -rotate-45 origin-top-left translate-y-2">BA 2 CHA 7731</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full max-w-[40px] bg-secondary-container rounded-t-xs hover:bg-secondary transition-all chart-bar" style="height: 70%;"></div>
+<span class="mt-2 text-label-sm font-label-sm text-outline -rotate-45 origin-top-left translate-y-2">BA 3 HA 5562</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full max-w-[40px] bg-secondary-container rounded-t-xs hover:bg-secondary transition-all chart-bar" style="height: 55%;"></div>
+<span class="mt-2 text-label-sm font-label-sm text-outline -rotate-45 origin-top-left translate-y-2">BA 1 PA 2291</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full max-w-[40px] bg-secondary-container rounded-t-xs hover:bg-secondary transition-all chart-bar" style="height: 80%;"></div>
+<span class="mt-2 text-label-sm font-label-sm text-outline -rotate-45 origin-top-left translate-y-2">BA 2 CHA 6601</span>
+</div>
+<div class="flex flex-col items-center flex-1 group">
+<div class="w-full max-w-[40px] bg-secondary-container rounded-t-xs hover:bg-secondary transition-all chart-bar" style="height: 35%;"></div>
+<span class="mt-2 text-label-sm font-label-sm text-outline -rotate-45 origin-top-left translate-y-2">BA 3 HA 3318</span>
+</div>
+</div>
+</section>
+<!-- Stats Summary Sidebar -->
+<aside class="col-span-12 lg:col-span-4 space-y-md">
+<div class="bg-primary text-on-primary p-lg rounded-lg shadow-sm">
+<div class="flex justify-between items-start mb-md">
+<span class="material-symbols-outlined text-secondary-fixed" data-icon="trending_up">trending_up</span>
+<span class="text-label-sm bg-secondary-container/20 px-2 py-0.5 rounded text-secondary-fixed">+12.4%</span>
+</div>
+<h4 class="text-body-md text-on-primary/70">Total Fleet Distance</h4>
+<p class="text-display font-display mt-1">42,890 <span class="text-headline-md font-headline-md text-on-primary/50">km</span></p>
+</div>
+<div class="bg-white border border-outline-variant p-lg rounded-lg">
+<h4 class="text-label-sm font-label-sm text-outline mb-md uppercase tracking-wider">EV Performance</h4>
+<div class="space-y-md">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary-container text-[20px]" data-icon="bolt">bolt</span>
+<span class="text-body-md font-body-md">Energy Saved</span>
+</div>
+<span class="font-mono-data text-mono-data">1,240 kWh</span>
+</div>
+<div class="w-full bg-surface-container-low h-1.5 rounded-full">
+<div class="bg-secondary-fixed-dim h-full rounded-full w-3/4"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-body-md font-body-md">EV Utilization</span>
+<span class="font-mono-data text-mono-data text-on-secondary-container font-bold">78%</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Vehicle Usage Summary Table -->
+<section class="col-span-12 bg-white border border-outline-variant rounded-lg overflow-hidden">
+<div class="px-lg py-md border-b border-outline-variant flex items-center justify-between bg-surface-container-low">
+<h3 class="text-headline-md font-headline-md text-primary">Vehicle Usage Summary</h3>
+<div class="flex gap-sm">
+<button class="p-1 hover:bg-surface-container rounded transition-all material-symbols-outlined text-on-surface-variant" data-icon="filter_list">filter_list</button>
+<button class="p-1 hover:bg-surface-container rounded transition-all material-symbols-outlined text-on-surface-variant" data-icon="more_vert">more_vert</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-lg py-md text-label-sm font-label-sm text-on-surface-variant border-b border-outline-variant cursor-pointer hover:text-primary transition-colors">Plate Number <span class="material-symbols-outlined align-middle text-[14px]" data-icon="unfold_more">unfold_more</span></th>
+<th class="px-lg py-md text-label-sm font-label-sm text-on-surface-variant border-b border-outline-variant">Status</th>
+<th class="px-lg py-md text-label-sm font-label-sm text-on-surface-variant border-b border-outline-variant text-right">Total Trips</th>
+<th class="px-lg py-md text-label-sm font-label-sm text-on-surface-variant border-b border-outline-variant text-right">Total Distance (km)</th>
+<th class="px-lg py-md text-label-sm font-label-sm text-on-surface-variant border-b border-outline-variant">Last Used Date</th>
+<th class="px-lg py-md text-label-sm font-label-sm text-on-surface-variant border-b border-outline-variant text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-2">
+<span class="font-mono-data text-mono-data text-primary">BA 2 CHA 9082</span><span class="text-label-sm text-on-surface-variant ml-sm">Hyundai Kona</span>
+<span class="bg-secondary-fixed text-on-secondary-fixed px-1.5 py-0.5 rounded text-[10px] font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]" data-icon="bolt">bolt</span> EV
+                                            </span>
+</div>
+</td>
+<td class="px-lg py-md">
+<span class="px-2 py-1 rounded-full text-[11px] font-bold bg-green-100 text-green-700 uppercase tracking-tight">Active</span>
+</td>
+<td class="px-lg py-md text-right font-mono-data text-mono-data">142</td>
+<td class="px-lg py-md text-right font-mono-data text-mono-data">5,120.4</td>
+<td class="px-lg py-md text-body-md text-on-surface-variant">Oct 24, 2023, 14:30</td>
+<td class="px-lg py-md text-right">
+<button class="text-on-secondary-container hover:underline text-label-sm font-label-sm">View Details</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-2">
+<span class="font-mono-data text-mono-data text-primary">BA 3 HA 4412</span><span class="text-label-sm text-on-surface-variant ml-sm">Suzuki Wagon R</span>
+</div>
+</td>
+<td class="px-lg py-md">
+<span class="px-2 py-1 rounded-full text-[11px] font-bold bg-yellow-100 text-yellow-700 uppercase tracking-tight">Maintenance</span>
+</td>
+<td class="px-lg py-md text-right font-mono-data text-mono-data">98</td>
+<td class="px-lg py-md text-right font-mono-data text-mono-data">3,850.2</td>
+<td class="px-lg py-md text-body-md text-on-surface-variant">Oct 22, 2023, 09:15</td>
+<td class="px-lg py-md text-right">
+<button class="text-on-secondary-container hover:underline text-label-sm font-label-sm">View Details</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-2">
+<span class="font-mono-data text-mono-data text-primary">BA 1 PA 1102</span><span class="text-label-sm text-on-surface-variant ml-sm">Hyundai Kona</span>
+<span class="bg-secondary-fixed text-on-secondary-fixed px-1.5 py-0.5 rounded text-[10px] font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]" data-icon="bolt">bolt</span> EV
+                                            </span>
+</div>
+</td>
+<td class="px-lg py-md">
+<span class="px-2 py-1 rounded-full text-[11px] font-bold bg-green-100 text-green-700 uppercase tracking-tight">Active</span>
+</td>
+<td class="px-lg py-md text-right font-mono-data text-mono-data">156</td>
+<td class="px-lg py-md text-right font-mono-data text-mono-data">6,241.0</td>
+<td class="px-lg py-md text-body-md text-on-surface-variant">Oct 24, 2023, 16:45</td>
+<td class="px-lg py-md text-right">
+<button class="text-on-secondary-container hover:underline text-label-sm font-label-sm">View Details</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-2">
+<span class="font-mono-data text-mono-data text-primary">BA 2 CHA 7731</span><span class="text-label-sm text-on-surface-variant ml-sm">Suzuki Swift</span>
+</div>
+</td>
+<td class="px-lg py-md">
+<span class="px-2 py-1 rounded-full text-[11px] font-bold bg-red-100 text-red-700 uppercase tracking-tight">Inactive</span>
+</td>
+<td class="px-lg py-md text-right font-mono-data text-mono-data">45</td>
+<td class="px-lg py-md text-right font-mono-data text-mono-data">1,210.8</td>
+<td class="px-lg py-md text-body-md text-on-surface-variant">Oct 15, 2023, 11:20</td>
+<td class="px-lg py-md text-right">
+<button class="text-on-secondary-container hover:underline text-label-sm font-label-sm">View Details</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-2">
+<span class="font-mono-data text-mono-data text-primary">BA 3 HA 5562</span><span class="text-label-sm text-on-surface-variant ml-sm">Suzuki Wagon R</span>
+</div>
+</td>
+<td class="px-lg py-md">
+<span class="px-2 py-1 rounded-full text-[11px] font-bold bg-green-100 text-green-700 uppercase tracking-tight">Active</span>
+</td>
+<td class="px-lg py-md text-right font-mono-data text-mono-data">112</td>
+<td class="px-lg py-md text-right font-mono-data text-mono-data">4,402.5</td>
+<td class="px-lg py-md text-body-md text-on-surface-variant">Oct 24, 2023, 10:00</td>
+<td class="px-lg py-md text-right">
+<button class="text-on-secondary-container hover:underline text-label-sm font-label-sm">View Details</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-lg py-md bg-surface-container-low border-t border-outline-variant flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Showing 5 of 124 vehicles</span>
+<div class="flex gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface-variant hover:bg-white" disabled="">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-primary bg-primary text-on-primary text-label-sm font-label-sm">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface-variant hover:bg-white text-label-sm font-label-sm">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface-variant hover:bg-white text-label-sm font-label-sm">3</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface-variant hover:bg-white">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Simple Tooltip Component (Invisible by default, for hover states) -->
+<div class="fixed hidden bg-primary-container text-on-primary-container px-md py-sm rounded-lg text-label-sm font-label-sm shadow-xl pointer-events-none z-50" id="chart-tooltip">
+        Value: 0km
+    </div>
+<script>
+        // Micro-interactions for the chart bars
+        const bars = document.querySelectorAll('.chart-bar');
+        const tooltip = document.getElementById('chart-tooltip');
+
+        bars.forEach((bar, index) => {
+            bar.addEventListener('mousemove', (e) => {
+                const value = Math.round(bar.style.height.replace('%', '') * 60); // Mock scale
+                tooltip.style.left = e.clientX + 10 + 'px';
+                tooltip.style.top = e.clientY - 30 + 'px';
+                tooltip.innerText = `Plate: ${bar.nextElementSibling.innerText} | Distance: ${value} km`;
+                tooltip.classList.remove('hidden');
+                bar.classList.add('opacity-80');
+            });
+
+            bar.addEventListener('mouseleave', () => {
+                tooltip.classList.add('hidden');
+                bar.classList.remove('opacity-80');
+            });
+        });
+
+        // Simulating data refresh
+        document.querySelector('button:has(.material-symbols-outlined[data-icon="refresh"])').addEventListener('click', function() {
+            this.classList.add('animate-spin');
+            setTimeout(() => {
+                this.classList.remove('animate-spin');
+                // Could trigger a re-animation of bars here
+                bars.forEach(bar => {
+                    const originalHeight = bar.style.height;
+                    bar.style.height = '0%';
+                    setTimeout(() => bar.style.height = originalHeight, 50);
+                });
+            }, 800);
+        });
+    </script>
+
+
+</body></html>
