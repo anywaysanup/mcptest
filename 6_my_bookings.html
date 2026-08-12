@@ -1,0 +1,235 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>My Bookings - VMS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"surface-dim": "#d3dbe3", "on-secondary-fixed": "#1a1c1c", "on-tertiary-fixed": "#2f1400", "on-background": "#151d22", background: "#f6faff", "on-surface-variant": "#3d494c", "surface-container": "#e7eff7", error: "#ba1a1a", "tertiary-container": "#d2803c", "surface-container-low": "#edf4fc", "on-primary-fixed": "#001f25", "on-tertiary-fixed-variant": "#703800", "inverse-on-surface": "#eaf2f9", "secondary-container": "#dfe0e0", "tertiary-fixed": "#ffdcc4", "on-error": "#ffffff", "on-secondary": "#ffffff", "secondary-fixed-dim": "#c6c6c7", "surface-container-lowest": "#ffffff", "on-secondary-container": "#616363", "on-tertiary": "#ffffff", "inverse-surface": "#2a3137", primary: "#006877", "on-error-container": "#93000a", "on-surface": "#151d22", "surface-container-highest": "#dce3eb", tertiary: "#914c07", "secondary-fixed": "#e2e2e2", "on-primary-fixed-variant": "#004e5a", "on-secondary-fixed-variant": "#454747", "surface-container-high": "#e1e9f1", outline: "#6d797c", "error-container": "#ffdad6", "surface-variant": "#dce3eb", "on-tertiary-container": "#492200", secondary: "#5d5f5f", "surface-bright": "#f6faff", "on-primary": "#ffffff", "surface-tint": "#006877", "on-primary-container": "#00323a", "primary-fixed-dim": "#62d6ed", "primary-container": "#17a2b8", "inverse-primary": "#62d6ed", surface: "#f6faff", "tertiary-fixed-dim": "#ffb781", "outline-variant": "#bcc9cc", "primary-fixed": "#a4eeff"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, spacing: {sm: "8px", xs: "4px", xl: "32px", lg: "24px", gutter: "20px", "container-max": "1440px", base: "4px", md: "16px"}, fontFamily: {"headline-md": ["Inter"], "headline-lg": ["Inter"], "label-sm": ["Inter"], "body-md": ["Inter"], display: ["Inter"], "mono-data": ["Inter"], "headline-lg-mobile": ["Inter"], "body-lg": ["Inter"], headline: ["Inter"], body: ["Inter"], label: ["Inter"]}, fontSize: {"headline-md": ["18px", {lineHeight: "24px", fontWeight: "600"}], "headline-lg": ["24px", {lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600"}], "label-sm": ["12px", {lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600"}], "body-md": ["14px", {lineHeight: "20px", fontWeight: "400"}], display: ["36px", {lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700"}], "mono-data": ["13px", {lineHeight: "18px", fontWeight: "500"}], "headline-lg-mobile": ["20px", {lineHeight: "28px", fontWeight: "600"}], "body-lg": ["16px", {lineHeight: "24px", fontWeight: "400"}]}}}};</script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased flex h-screen overflow-hidden">
+<!-- NavigationDrawer (Desktop) -->
+<nav class="hidden md:flex flex-col fixed left-0 top-0 h-full z-40 bg-surface border-r border-outline-variant w-[260px] p-md gap-sm">
+<div class="flex items-center gap-sm mb-lg px-2">
+<span class="text-headline-md font-headline-md font-bold text-primary">VMS</span>
+</div>
+<div class="flex items-center gap-md px-2 py-3 mb-4 rounded-lg bg-surface-container-low">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+<span class="text-headline-md font-headline-md">AF</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="text-body-md font-body-md font-semibold text-on-surface truncate">Aayush Shrestha</span>
+<span class="text-label-sm font-label-sm text-secondary truncate">Fleet Administrator</span>
+<span class="text-[10px] leading-[12px] font-mono-data text-outline truncate mt-0.5">Staff ID: 8829</span>
+</div>
+</div>
+<ul class="flex flex-col gap-1 w-full">
+<li class="w-full">
+<a class="flex items-center gap-sm px-4 py-3 rounded-lg text-secondary hover:bg-surface-container-high transition-colors cursor-pointer active:bg-surface-dim" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</a>
+</li>
+<li class="w-full">
+<a class="flex items-center gap-sm px-4 py-3 rounded-lg bg-secondary-container text-on-secondary-container border-l-4 border-primary transition-colors cursor-pointer active:bg-surface-dim" href="#">
+<span class="material-symbols-outlined" data-icon="route" data-weight="fill">route</span>
+<span class="text-label-sm font-label-sm">My Trips</span>
+</a>
+</li>
+<li class="w-full">
+<a class="flex items-center gap-sm px-4 py-3 rounded-lg text-secondary hover:bg-surface-container-high transition-colors cursor-pointer active:bg-surface-dim" href="#">
+<span class="material-symbols-outlined" data-icon="add_box">add_box</span>
+<span class="text-label-sm font-label-sm">New Request</span>
+</a>
+</li>
+<li class="w-full">
+<a class="flex items-center gap-sm px-4 py-3 rounded-lg text-secondary hover:bg-surface-container-high transition-colors cursor-pointer active:bg-surface-dim" href="#">
+<span class="material-symbols-outlined" data-icon="garage">garage</span>
+<span class="text-label-sm font-label-sm">Fleet Management</span>
+</a>
+</li>
+<li class="w-full">
+<a class="flex items-center gap-sm px-4 py-3 rounded-lg text-secondary hover:bg-surface-container-high transition-colors cursor-pointer active:bg-surface-dim" href="#">
+<span class="material-symbols-outlined" data-icon="build">build</span>
+<span class="text-label-sm font-label-sm">Maintenance</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col w-full h-full md:ml-[260px] overflow-hidden">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-gutter py-md w-full border-b border-outline-variant bg-surface sticky top-0 z-30">
+<div class="flex items-center gap-md">
+<button class="md:hidden p-2 -ml-2 text-primary rounded-full hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg-mobile md:font-headline-lg font-bold text-primary">My Bookings</h1>
+</div>
+<div>
+<button class="text-label-sm font-label-sm font-semibold text-primary px-4 py-2 rounded border border-outline-variant hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:opacity-80">
+                    Admin View
+                </button>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-4 md:p-gutter pb-24 md:pb-gutter bg-background">
+<div class="max-w-container-max mx-auto w-full flex flex-col gap-lg">
+<!-- Tabs -->
+<div class="flex items-center gap-1 border-b border-outline-variant overflow-x-auto hide-scrollbar">
+<button class="px-4 py-3 text-label-sm font-label-sm text-primary font-bold border-b-2 border-primary whitespace-nowrap">All</button>
+<button class="px-4 py-3 text-label-sm font-label-sm text-secondary hover:bg-surface-container-low transition-colors duration-200 whitespace-nowrap">Scheduled</button>
+<button class="px-4 py-3 text-label-sm font-label-sm text-secondary hover:bg-surface-container-low transition-colors duration-200 whitespace-nowrap">Ongoing</button>
+<button class="px-4 py-3 text-label-sm font-label-sm text-secondary hover:bg-surface-container-low transition-colors duration-200 whitespace-nowrap">Completed</button>
+</div>
+<!-- Bookings List -->
+<div class="flex flex-col gap-md">
+<!-- Ongoing Booking -->
+<div class="bg-surface rounded-lg border border-outline-variant flex flex-col p-4 gap-4">
+<div class="flex justify-between items-start gap-4">
+<div class="flex flex-col gap-1"><div class="flex items-center gap-2"><h3 class="text-headline-md font-headline-md text-on-surface">Boudha Stupa</h3><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-[#d0e1fb] text-[#091426]">ONGOING</span></div><p class="text-body-md font-body-md text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" data-icon="directions_car">directions_car</span><span class="">Suzuki Swift (BA 3 PA 2040)</span></p></div>
+<div class="text-right">
+<p class="text-label-sm font-label-sm text-on-surface">Today</p>
+<p class="text-body-md font-body-md text-secondary">09:00 - 17:00</p>
+</div>
+</div>
+<div class="flex justify-end gap-2 border-t border-surface-variant pt-3 mt-1">
+<button class="px-4 py-2 bg-primary text-on-primary rounded text-label-sm font-label-sm font-semibold hover:bg-opacity-90 transition-opacity" onclick="document.getElementById('complete-modal').classList.remove('hidden')">
+                                Mark Complete
+                            </button>
+</div>
+</div>
+<!-- Scheduled Booking (EV) -->
+<div class="bg-surface rounded-lg border border-outline-variant flex flex-col p-4 gap-4">
+<div class="flex justify-between items-start gap-4">
+<div class="flex flex-col gap-1"><div class="flex items-center gap-2"><h3 class="text-headline-md font-headline-md text-on-surface">Pashupatinath</h3><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-[#fadfb8] text-[#271902]">SCHEDULED</span></div><p class="text-body-md font-body-md text-on-surface-variant flex items-center gap-2"><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" data-icon="electric_car">electric_car</span><span class="">Hyundai Kona (EV) (BA 1 JHA 9921)</span></span><span class="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] font-bold border border-[#d0e1fb] text-[#091426] bg-[#d0e1fb] bg-opacity-20"><span class="material-symbols-outlined text-[12px]" data-icon="bolt">bolt</span>EV PRIORITY</span></p></div>
+<div class="text-right">
+<p class="text-label-sm font-label-sm text-on-surface">Tomorrow</p>
+<p class="text-body-md font-body-md text-secondary">10:00 - 14:00</p>
+</div>
+</div>
+<div class="flex justify-end gap-2 border-t border-surface-variant pt-3 mt-1">
+<button class="px-4 py-2 border border-outline-variant text-on-surface rounded text-label-sm font-label-sm font-semibold hover:bg-surface-container-low transition-colors">
+                                Reschedule
+                            </button>
+<button class="px-4 py-2 border border-error text-error rounded text-label-sm font-label-sm font-semibold hover:bg-error-container hover:bg-opacity-20 transition-colors" onclick="document.getElementById('cancel-modal').classList.remove('hidden')">
+                                Cancel
+                            </button>
+</div>
+</div>
+<!-- Completed Booking -->
+<div class="bg-surface rounded-lg border border-outline-variant flex flex-col p-4 gap-4 opacity-75">
+<div class="flex justify-between items-start gap-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<h3 class="text-headline-md font-headline-md text-on-surface line-through decoration-outline">Client Meeting - Thamel</h3>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-bold bg-[#eae7e9] text-[#45474c]">
+                                        COMPLETED
+                                    </span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" data-icon="directions_car">directions_car</span><span class="">Suzuki Wagon R (BA 2 CHA 1150)</span></p>
+</div>
+<div class="text-right">
+<p class="text-label-sm font-label-sm text-on-surface">Oct 12, 2023</p>
+<p class="text-body-md font-body-md text-secondary">08:00 - 11:30</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 bg-surface border-t border-outline-variant">
+<button class="flex flex-col items-center justify-center text-secondary scale-95 hover:bg-surface-container-highest transition-all duration-100 p-2 rounded-lg">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-label-sm mt-1">Dashboard</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary scale-95 hover:bg-surface-container-highest transition-all duration-100 p-2 rounded-lg">
+<span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+<span class="text-[10px] font-label-sm mt-1">Fleet</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary font-bold scale-95 transition-all duration-100 p-2 rounded-lg">
+<span class="material-symbols-outlined" data-icon="calendar_month" data-weight="fill">calendar_month</span>
+<span class="text-[10px] font-label-sm mt-1">Bookings</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary scale-95 hover:bg-surface-container-highest transition-all duration-100 p-2 rounded-lg">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="text-[10px] font-label-sm mt-1">Alerts</span>
+</button>
+</nav>
+<!-- Modals -->
+<!-- Cancel Modal -->
+<div class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#1b1b1d] bg-opacity-50 backdrop-blur-sm" id="cancel-modal">
+<div class="bg-surface w-full max-w-md rounded-xl shadow-lg border border-outline-variant p-6 flex flex-col gap-4">
+<h2 class="text-headline-lg font-headline-lg font-bold text-on-surface">Cancel Booking</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Are you sure you want to cancel your scheduled booking for <span class="font-semibold text-on-surface">Site Inspection - North</span>?</p>
+<div class="flex flex-col gap-2 mt-2">
+<label class="text-label-sm font-label-sm text-on-surface" for="cancel-reason">Reason for cancellation (required)</label>
+<select class="w-full bg-surface border border-outline-variant rounded p-2 text-body-md font-body-md focus:border-primary focus:border-2 focus:ring-0 outline-none" id="cancel-reason">
+<option value="">Select a reason</option>
+<option value="schedule_change">Schedule Changed</option>
+<option value="vehicle_unneeded">Vehicle No Longer Needed</option>
+<option value="weather">Weather Conditions</option>
+<option value="other">Other</option>
+</select>
+<textarea class="w-full bg-surface border border-outline-variant rounded p-2 text-body-md font-body-md mt-2 focus:border-primary focus:border-2 focus:ring-0 outline-none hidden" placeholder="Please specify..." rows="2"></textarea>
+</div>
+<div class="flex justify-end gap-3 mt-4 pt-4 border-t border-surface-variant">
+<button class="px-4 py-2 border border-outline-variant text-on-surface rounded text-label-sm font-label-sm font-semibold hover:bg-surface-container-low transition-colors" onclick="document.getElementById('cancel-modal').classList.add('hidden')">
+                    Keep Booking
+                </button>
+<button class="px-4 py-2 bg-error text-on-error rounded text-label-sm font-label-sm font-semibold hover:bg-opacity-90 transition-opacity" onclick="document.getElementById('cancel-modal').classList.add('hidden')">
+                    Confirm Cancellation
+                </button>
+</div>
+</div>
+</div>
+<!-- Complete Modal -->
+<div class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#1b1b1d] bg-opacity-50 backdrop-blur-sm" id="complete-modal">
+<div class="bg-surface w-full max-w-md rounded-xl shadow-lg border border-outline-variant p-6 flex flex-col gap-4">
+<h2 class="text-headline-lg font-headline-lg font-bold text-on-surface">Complete Trip</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">Please provide the final details for your trip: <span class="font-semibold text-on-surface">Trip to HQ Hub</span>.</p>
+<div class="flex flex-col gap-4 mt-2">
+<div class="flex flex-col gap-2">
+<label class="text-label-sm font-label-sm text-on-surface" for="odometer">Ending Odometer (km)</label>
+<input class="w-full bg-surface border border-outline-variant rounded p-2 text-mono-data font-mono-data focus:border-primary focus:border-2 focus:ring-0 outline-none" id="odometer" placeholder="e.g. 45200" type="number">
+<span class="text-[10px] text-secondary">Starting odometer was: 45,112 km</span>
+</div>
+<div class="flex items-center gap-2">
+<input class="rounded border-outline-variant text-primary focus:ring-primary w-4 h-4" id="clean" type="checkbox">
+<label class="text-body-md font-body-md text-on-surface" for="clean">Vehicle requires cleaning</label>
+</div>
+<div class="flex items-center gap-2">
+<input class="rounded border-outline-variant text-primary focus:ring-primary w-4 h-4" id="damage" type="checkbox">
+<label class="text-body-md font-body-md text-on-surface" for="damage">Report new damage</label>
+</div>
+</div>
+<div class="flex justify-end gap-3 mt-4 pt-4 border-t border-surface-variant">
+<button class="px-4 py-2 border border-outline-variant text-on-surface rounded text-label-sm font-label-sm font-semibold hover:bg-surface-container-low transition-colors" onclick="document.getElementById('complete-modal').classList.add('hidden')">
+                    Cancel
+                </button>
+<button class="px-4 py-2 bg-primary text-on-primary rounded text-label-sm font-label-sm font-semibold hover:bg-opacity-90 transition-opacity" onclick="document.getElementById('complete-modal').classList.add('hidden')">
+                    Submit &amp; Complete
+                </button>
+</div>
+</div>
+</div>
+
+
+</body></html>

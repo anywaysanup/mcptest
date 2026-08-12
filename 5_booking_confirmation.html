@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Booking Confirmation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"surface-dim": "#d3dbe3", "on-secondary-fixed": "#1a1c1c", "on-tertiary-fixed": "#2f1400", "on-background": "#151d22", background: "#f6faff", "on-surface-variant": "#3d494c", "surface-container": "#e7eff7", error: "#ba1a1a", "tertiary-container": "#d2803c", "surface-container-low": "#edf4fc", "on-primary-fixed": "#001f25", "on-tertiary-fixed-variant": "#703800", "inverse-on-surface": "#eaf2f9", "secondary-container": "#dfe0e0", "tertiary-fixed": "#ffdcc4", "on-error": "#ffffff", "on-secondary": "#ffffff", "secondary-fixed-dim": "#c6c6c7", "surface-container-lowest": "#ffffff", "on-secondary-container": "#616363", "on-tertiary": "#ffffff", "inverse-surface": "#2a3137", primary: "#006877", "on-error-container": "#93000a", "on-surface": "#151d22", "surface-container-highest": "#dce3eb", tertiary: "#914c07", "secondary-fixed": "#e2e2e2", "on-primary-fixed-variant": "#004e5a", "on-secondary-fixed-variant": "#454747", "surface-container-high": "#e1e9f1", outline: "#6d797c", "error-container": "#ffdad6", "surface-variant": "#dce3eb", "on-tertiary-container": "#492200", secondary: "#5d5f5f", "surface-bright": "#f6faff", "on-primary": "#ffffff", "surface-tint": "#006877", "on-primary-container": "#00323a", "primary-fixed-dim": "#62d6ed", "primary-container": "#17a2b8", "inverse-primary": "#62d6ed", surface: "#f6faff", "tertiary-fixed-dim": "#ffb781", "outline-variant": "#bcc9cc", "primary-fixed": "#a4eeff"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, spacing: {sm: "8px", xs: "4px", xl: "32px", lg: "24px", gutter: "20px", "container-max": "1440px", base: "4px", md: "16px"}, fontFamily: {"headline-md": ["Inter"], "headline-lg": ["Inter"], "label-sm": ["Inter"], "body-md": ["Inter"], display: ["Inter"], "mono-data": ["Inter"], "headline-lg-mobile": ["Inter"], "body-lg": ["Inter"], headline: ["Inter"], body: ["Inter"], label: ["Inter"]}, fontSize: {"headline-md": ["18px", {lineHeight: "24px", fontWeight: "600"}], "headline-lg": ["24px", {lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600"}], "label-sm": ["12px", {lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600"}], "body-md": ["14px", {lineHeight: "20px", fontWeight: "400"}], display: ["36px", {lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700"}], "mono-data": ["13px", {lineHeight: "18px", fontWeight: "500"}], "headline-lg-mobile": ["20px", {lineHeight: "28px", fontWeight: "600"}], "body-lg": ["16px", {lineHeight: "24px", fontWeight: "400"}]}}}};</script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #fbf8fa; color: #1b1b1d; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col justify-center items-center p-md sm:p-lg md:p-xl" data-mode="connect">
+<!-- Transactional Page: No Navigation Shells (TopAppBar, BottomNavBar, SideNav) as per instructions -->
+<main class="w-full max-w-2xl bg-surface border border-outline-variant rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.05)] overflow-hidden">
+<!-- Header / Success Banner -->
+<div class="bg-surface-container-low border-b border-outline-variant p-lg md:p-xl text-center">
+<div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-secondary-fixed mb-md">
+<span class="material-symbols-outlined text-display text-primary" style='font-variation-settings: "FILL" 1;'>check_circle</span>
+</div>
+<h1 class="text-display font-display text-primary mb-sm">Booking confirmed</h1>
+<p class="text-body-lg font-body-lg text-secondary">Your booking reference is <span class="font-mono-data text-on-surface">#TRP-8892-A</span></p>
+</div>
+<div class="p-lg md:p-xl flex flex-col gap-lg">
+<!-- Trip Summary Card -->
+<div class="border border-outline-variant rounded-lg overflow-hidden">
+<div class="bg-surface-container-low px-md py-sm border-b border-outline-variant">
+<h3 class="text-label-sm font-label-sm text-secondary uppercase tracking-wider">Trip Summary</h3>
+</div>
+<div class="divide-y divide-outline-variant">
+<div class="px-md py-sm hover:bg-surface-container-low transition-colors">
+<p class="text-headline-md font-headline-md text-on-surface">Baneshwor → Tribhuvan International Airport</p>
+<p class="text-body-md font-body-md text-on-surface-variant mt-xs">Tomorrow, 8:00 AM · One-way</p>
+</div>
+</div>
+</div>
+<!-- Vehicle & Driver Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Assigned Vehicle -->
+<div class="bg-surface border border-outline-variant rounded-lg p-md flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-sm">
+<span class="text-label-sm font-label-sm text-secondary uppercase tracking-wider">Assigned Vehicle</span>
+<!-- EV Priority Tag -->
+<div class="inline-flex items-center gap-xs px-2 py-1 rounded bg-secondary-fixed text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span class="text-label-sm font-label-sm">EV Priority</span>
+</div>
+</div>
+<p class="text-headline-md font-headline-md text-on-surface">Swift</p>
+<p class="text-mono-data font-mono-data text-on-surface-variant mt-xs">BA 3 CHA 9876</p>
+</div>
+<div class="mt-md h-24 rounded-DEFAULT bg-surface-container-highest border border-outline-variant overflow-hidden">
+<img alt="Assigned Vehicle" class="w-full h-full object-cover grayscale opacity-80" data-alt="A clean, modern, side-profile view of a white hatchback parked in a bright, minimalist industrial fleet yard. The lighting is soft and natural, emphasizing the vehicle's sleek lines against a slate-gray concrete background. The aesthetic is highly professional, wireframe-inspired, and utilitarian, fitting a fleet management context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAMcEkvSeoLRYH3V7Gcx40E8YYqhooQfz_yAwXMwzGWAuJCGKFIFeVgE7QsiE8wvBJ2qisd83BA2b9flCGDybX0OgTC4BRKZt7_JAnAwNnqdYeHcogVSAbYrnBYiAo_IgFUqkeC1KHKB6gwThCMvBwcK2qJ8aQeARZqWAPAwGEKTghLEu9xTaOAFEGPu3Vi0_Mafa6IyyVfeigdYhipx6J6WObfkHAypuEjlKSBHxxTPOS4zGK8o-v"/>
+</div>
+</div>
+<!-- Assigned Driver -->
+<div class="bg-surface border border-outline-variant rounded-lg p-md flex flex-col justify-between">
+<div>
+<span class="text-label-sm font-label-sm text-secondary uppercase tracking-wider block mb-sm">Assigned Driver</span>
+<div class="flex items-center gap-sm mt-xs">
+<div class="w-12 h-12 rounded-full bg-surface-container-high border border-outline-variant overflow-hidden shrink-0">
+<img alt="Driver Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a mature, friendly male driver with short dark hair, wearing a clean, slate-gray uniform shirt. The background is a plain, light-mode white or very light gray studio backdrop. The lighting is flat and even, ensuring clarity and a sense of reliability suited for a corporate fleet application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7-0MwMKhh4gQlmDPOVzh5wVz2x-wIGd0IgGFJwVTVNeOxew-pB0tpqnnPRKKFftHUhZOXkSTKYp8WnE4lUKlpyiuF-vhAnpQUSi60K-mPiTqwC-okgn89lb5YRgM8FqZn33QQc9BbmnfYHoaTzzitWgFSExkV0ahgXOxxRyZdLHWsLZRVAr1vTpiqbzhbjXaiswss_VtfQv-VYQiDV7yXVCq5f7sxfVIE3SQy2xjDHrkA9OyI5jLQ"/>
+</div>
+<div>
+<p class="text-headline-md font-headline-md text-on-surface">Hari Prasad</p>
+<p class="text-body-md font-body-md text-secondary mt-xs">Rating: 4.9 ★</p><div class="">+977 980-1234567</div>
+</div>
+</div>
+</div>
+<div class="mt-md">
+<button class="w-full py-2 px-4 rounded-DEFAULT border border-outline text-secondary text-body-md font-body-md hover:bg-surface-container-low transition-colors flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined text-[18px]">call</span>
+                            Contact Driver
+                        </button>
+</div>
+</div>
+</div>
+<!-- Important Note -->
+<div class="bg-tertiary-fixed border border-tertiary-fixed-dim rounded-lg p-md flex items-start gap-sm">
+<span class="material-symbols-outlined text-on-tertiary-fixed shrink-0">info</span>
+<p class="text-body-md font-body-md text-on-tertiary-fixed">
+<strong class="font-semibold">Important Note:</strong> Contact your driver within 10–15 minutes to confirm.
+                </p>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="bg-surface-container-low border-t border-outline-variant p-lg flex flex-col sm:flex-row justify-end items-center gap-md">
+<button class="w-full sm:w-auto px-lg py-sm rounded-DEFAULT border border-outline text-secondary text-body-md font-body-md hover:bg-surface-container transition-colors">
+                Cancel Trip
+            </button>
+<button class="w-full sm:w-auto px-lg py-sm rounded-DEFAULT bg-primary text-on-primary text-body-md font-body-md hover:bg-slate-700 transition-colors">
+                View my bookings
+            </button>
+</div>
+</main>
+</body></html>

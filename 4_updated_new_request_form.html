@@ -1,0 +1,255 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>New Trip Request - VMS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"surface-dim": "#d3dbe3", "on-secondary-fixed": "#1a1c1c", "on-tertiary-fixed": "#2f1400", "on-background": "#151d22", background: "#f6faff", "on-surface-variant": "#3d494c", "surface-container": "#e7eff7", error: "#ba1a1a", "tertiary-container": "#d2803c", "surface-container-low": "#edf4fc", "on-primary-fixed": "#001f25", "on-tertiary-fixed-variant": "#703800", "inverse-on-surface": "#eaf2f9", "secondary-container": "#dfe0e0", "tertiary-fixed": "#ffdcc4", "on-error": "#ffffff", "on-secondary": "#ffffff", "secondary-fixed-dim": "#c6c6c7", "surface-container-lowest": "#ffffff", "on-secondary-container": "#616363", "on-tertiary": "#ffffff", "inverse-surface": "#2a3137", primary: "#006877", "on-error-container": "#93000a", "on-surface": "#151d22", "surface-container-highest": "#dce3eb", tertiary: "#914c07", "secondary-fixed": "#e2e2e2", "on-primary-fixed-variant": "#004e5a", "on-secondary-fixed-variant": "#454747", "surface-container-high": "#e1e9f1", outline: "#6d797c", "error-container": "#ffdad6", "surface-variant": "#dce3eb", "on-tertiary-container": "#492200", secondary: "#5d5f5f", "surface-bright": "#f6faff", "on-primary": "#ffffff", "surface-tint": "#006877", "on-primary-container": "#00323a", "primary-fixed-dim": "#62d6ed", "primary-container": "#17a2b8", "inverse-primary": "#62d6ed", surface: "#f6faff", "tertiary-fixed-dim": "#ffb781", "outline-variant": "#bcc9cc", "primary-fixed": "#a4eeff"}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}, spacing: {sm: "8px", xs: "4px", xl: "32px", lg: "24px", gutter: "20px", "container-max": "1440px", base: "4px", md: "16px"}, fontFamily: {"headline-md": ["Inter"], "headline-lg": ["Inter"], "label-sm": ["Inter"], "body-md": ["Inter"], display: ["Inter"], "mono-data": ["Inter"], "headline-lg-mobile": ["Inter"], "body-lg": ["Inter"], headline: ["Inter"], body: ["Inter"], label: ["Inter"]}, fontSize: {"headline-md": ["18px", {lineHeight: "24px", fontWeight: "600"}], "headline-lg": ["24px", {lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600"}], "label-sm": ["12px", {lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600"}], "body-md": ["14px", {lineHeight: "20px", fontWeight: "400"}], display: ["36px", {lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700"}], "mono-data": ["13px", {lineHeight: "18px", fontWeight: "500"}], "headline-lg-mobile": ["20px", {lineHeight: "28px", fontWeight: "600"}], "body-lg": ["16px", {lineHeight: "24px", fontWeight: "400"}]}}}};</script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md min-h-screen flex flex-col md:flex-row">
+<!-- Sidebar (Desktop) -->
+<nav class="hidden md:flex flex-col gap-sm p-md h-full w-[260px] fixed left-0 top-0 z-40 bg-surface dark:bg-surface border-r border-outline-variant dark:border-outline flat no shadows">
+<div class="mb-lg px-sm">
+<h1 class="text-headline-md font-headline-md font-bold text-primary">VMS</h1>
+</div>
+<div class="flex items-center gap-md px-sm py-md mb-md border-b border-outline-variant">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a fleet administrator in a brightly lit modern office environment. The image is high-fidelity and wireframe-plus styled with realistic textures, utilizing a slate and info-blue color palette to match the UI system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNPPb284QfsM6lSrynJ6gnxg5rES5HKvjndI-mW5Klm9wY2NoX8JvKskapeexrpjG5hJMR7JN7JdEnA-KDNqmJUIHjgGHaQiOwQM-U9Oy7s6jqX9-1sKs-KauYj95CrAEHIwBGOAvsgXmF5XNU4gZ5KU28rgBlZXFFNwI1dDkY5gbOYrTzkZH_LrL0Nig5uQqepQIVAoyM2EFiVeeqEJMPrOpvtCqswsJBq4qgnJcy-F_RfITpcAA2">
+</div>
+<div>
+<p class="font-bold text-on-surface text-body-md">Alex Fleetman</p>
+<p class="text-secondary text-label-sm">Fleet Administrator</p>
+<p class="text-secondary text-label-sm">Staff ID: 8829</p>
+</div>
+</div>
+<ul class="flex flex-col gap-xs flex-1">
+<li class="">
+<a class="flex items-center gap-md px-sm py-sm rounded-DEFAULT text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-high transition-colors cursor-pointer active:bg-surface-dim" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-md px-sm py-sm rounded-DEFAULT text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-high transition-colors cursor-pointer active:bg-surface-dim" href="#">
+<span class="material-symbols-outlined">route</span>
+<span class="text-label-sm font-label-sm">My Trips</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-md px-sm py-sm rounded-DEFAULT bg-secondary-container dark:bg-primary-container text-on-secondary-container dark:text-on-primary-container border-l-4 border-primary hover:bg-surface-container-high transition-colors cursor-pointer active:bg-surface-dim" href="#">
+<span class="material-symbols-outlined icon-fill">add_box</span>
+<span class="text-label-sm font-label-sm">New Request</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-md px-sm py-sm rounded-DEFAULT text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-high transition-colors cursor-pointer active:bg-surface-dim" href="#">
+<span class="material-symbols-outlined">garage</span>
+<span class="text-label-sm font-label-sm">Fleet Management</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-md px-sm py-sm rounded-DEFAULT text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-high transition-colors cursor-pointer active:bg-surface-dim" href="#">
+<span class="material-symbols-outlined">build</span>
+<span class="text-label-sm font-label-sm">Maintenance</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-[260px] pb-24 md:pb-0">
+<!-- Top App Bar (Mobile ONLY) -->
+<header class="md:hidden flex justify-between items-center px-gutter py-md w-full bg-surface dark:bg-surface border-b border-outline-variant dark:border-outline flat no shadows sticky top-0 z-30">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary cursor-pointer active:opacity-80">menu</span>
+<h1 class="text-headline-lg-mobile font-headline-lg-mobile font-bold text-primary dark:text-primary-fixed">VMS</h1>
+</div>
+<span class="text-label-sm font-label-sm text-primary dark:text-primary-fixed cursor-pointer active:opacity-80">Admin View</span>
+</header>
+<div class="max-w-container-max mx-auto p-md md:p-lg grid grid-cols-1 gap-lg relative">
+<!-- Page Header -->
+<div class="mb-sm">
+<h2 class="text-headline-lg md:text-headline-lg font-headline-lg font-bold text-on-surface tracking-tight">Request New Trip</h2>
+<p class="text-on-surface-variant text-body-md mt-1">Submit a vehicle request. The system will auto-assign resources based on availability.</p>
+</div>
+<!-- Form Container -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-md md:p-lg shadow-sm">
+<form class="space-y-xl" id="trip-request-form">
+<!-- Section: Trip Details -->
+<fieldset class="space-y-md">
+<legend class="text-headline-md font-headline-md font-semibold text-on-surface mb-sm border-b border-outline-variant pb-xs w-full">Trip Details</legend>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- 1. Pickup Location -->
+<div class="flex flex-col gap-xs">
+<label class="text-label-sm font-label-sm text-on-surface-variant" for="pickup">Pickup Location</label>
+<div class="relative"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">location_on</span><select class="w-full pl-10 pr-10 py-2 bg-surface-container-lowest border border-outline-variant rounded-DEFAULT text-on-surface focus:outline-none focus:border-primary focus:border-2 focus:ring-0 transition-colors text-body-md font-body-md h-10 appearance-none" id="pickup" name="pickup" required=""><option disabled="" selected="" value="">Select starting point</option><option value="HO">HO</option><option value="Krishna Tower">Krishna Tower</option><option value="Devi Tower">Devi Tower</option></select><span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none">expand_more</span></div>
+</div>
+<!-- 2. Destination -->
+<div class="flex flex-col gap-xs">
+<label class="text-label-sm font-label-sm text-on-surface-variant" for="destination">Destination</label>
+<div class="relative"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">flag</span><input class="w-full pl-10 pr-3 py-2 bg-surface-container-lowest border border-outline-variant rounded-DEFAULT text-on-surface focus:outline-none focus:border-primary focus:border-2 focus:ring-0 transition-colors text-body-md font-body-md h-10" id="destination" name="destination" placeholder="Enter final destination" required="" type="text"></div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- 3. Pickup Time -->
+<div class="flex flex-col gap-xs">
+<label class="text-label-sm font-label-sm text-on-surface-variant" for="datetime">Pickup Time</label>
+<div class="relative"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">calendar_today</span><input class="w-full pl-10 pr-3 py-2 bg-surface-container-lowest border border-outline-variant rounded-DEFAULT text-on-surface focus:outline-none focus:border-primary focus:border-2 focus:ring-0 transition-colors text-body-md font-body-md h-10" id="datetime" name="datetime" required="" type="datetime-local" value="2024-05-20T10:30"></div>
+</div>
+<!-- 4. Trip Type -->
+<div class="flex flex-col gap-xs">
+<label class="text-label-sm font-label-sm text-on-surface-variant" for="triptype">Trip Type</label>
+<div class="relative"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">sync_alt</span><select class="w-full pl-10 pr-10 py-2 bg-surface-container-lowest border border-outline-variant rounded-DEFAULT text-on-surface focus:outline-none focus:border-primary focus:border-2 focus:ring-0 transition-colors text-body-md font-body-md h-10 appearance-none" id="triptype" name="triptype"><option class="" value="one-way">One-way: Drop off and return</option><option class="" value="round-trip">Round trip: Driver waits at destination</option></select><span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none">expand_more</span></div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- 5. Estimated Duration (Hours) -->
+<div class="flex flex-col gap-xs">
+<label class="text-label-sm font-label-sm text-on-surface-variant" for="duration-hours">Estimated Duration (Hours)</label>
+<div class="relative"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">timer</span><input class="w-full pl-10 pr-3 py-2 bg-surface-container-lowest border border-outline-variant rounded-DEFAULT text-on-surface focus:outline-none focus:border-primary focus:border-2 focus:ring-0 transition-colors text-body-md font-body-md h-10" id="duration-hours" min="0" name="duration-hours" placeholder="e.g. 2" step="0.5" type="number"></div>
+</div>
+<!-- 6. Calculated Return Time -->
+<div class="flex flex-col gap-xs">
+<label class="text-label-sm font-label-sm text-on-surface-variant" for="return-time">Vehicle Return Time</label>
+<div class="relative"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">history</span><input class="w-full pl-10 pr-3 py-2 bg-surface-container-lowest border border-outline-variant rounded-DEFAULT text-on-surface focus:outline-none focus:border-primary focus:border-2 focus:ring-0 transition-colors text-body-md font-body-md h-10 bg-surface-container-high" id="return-time" name="return-time" type="time" readonly="true"></div>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-md">
+<!-- 7. Reason for vehicle usage -->
+<div class="flex flex-col gap-xs">
+<label class="text-label-sm font-label-sm text-on-surface-variant" for="reason">Reason for vehicle usage</label>
+<div class="relative"><textarea class="w-full p-md bg-surface-container-lowest border border-outline-variant rounded-DEFAULT text-on-surface focus:outline-none focus:border-primary focus:border-2 focus:ring-0 transition-colors text-body-md font-body-md min-h-[40px]" id="reason" name="reason" placeholder="Enter purpose of trip" rows="1" style="height: 199px;"></textarea></div>
+</div>
+</div>
+</fieldset>
+<!-- Suggestion Banner (Hidden by default, shown via JS simulation) -->
+<div class="bg-secondary-container border border-primary-fixed-dim rounded-lg p-md flex flex-col md:flex-row items-start md:items-center justify-between gap-md transition-all duration-300 hidden" id="suggestion-banner">
+<div class="flex gap-sm items-start">
+<span class="material-symbols-outlined text-primary mt-0.5 icon-fill">lightbulb</span>
+<div>
+<h4 class="text-body-md font-bold text-on-secondary-container">Optimization Opportunity</h4>
+<p class="text-body-md text-on-secondary-container mt-1">A similar trip is already booked to <strong class="font-bold" id="suggest-dest">Downtown Site</strong> at <strong class="font-bold" id="suggest-time">oday</strong>. Joining saves resources.</p>
+</div>
+</div>
+<div class="flex gap-sm w-full md:w-auto mt-2 md:mt-0">
+<button class="flex-1 md:flex-none px-4 py-2 border border-outline-variant text-secondary rounded-DEFAULT text-body-md font-body-md hover:bg-surface-container-high transition-colors" onclick="hideSuggestion()" type="button">No Thanks</button>
+<button class="flex-1 md:flex-none px-4 py-2 bg-primary text-on-primary rounded-DEFAULT text-body-md font-body-md font-semibold hover:bg-opacity-90 transition-opacity" onclick="joinTrip()" type="button">Join Trip</button>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-col-reverse md:flex-row justify-end gap-md pt-lg border-t border-outline-variant">
+<button class="px-6 py-2 border border-outline-variant text-secondary rounded-DEFAULT text-body-md font-body-md font-semibold hover:bg-surface-container-high transition-colors" type="button">Cancel</button>
+<button class="px-6 py-2 bg-surface-tint text-on-primary rounded-DEFAULT text-body-md font-body-md font-semibold hover:bg-opacity-90 transition-opacity hidden" id="check-btn" onclick="simulateCheck()" type="button">Check Availability</button>
+<button class="px-6 py-2 bg-primary text-on-primary rounded-DEFAULT text-body-md font-body-md font-semibold hover:bg-opacity-90 transition-opacity" id="submit-btn" type="submit">Confirm Booking</button>
+</div>
+</form>
+</div>
+<div class="mt-4 text-center">
+<p class="text-label-sm font-label-sm text-outline">System auto-assigns vehicle + driver based on current fleet telemetry.</p>
+</div>
+</div>
+</main>
+<!-- Bottom Nav Bar (Mobile ONLY) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-4 bg-surface dark:bg-surface border-t border-outline-variant dark:border-outline flat no shadows">
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-highest transition-all scale-95 duration-100 w-1/4" href="#">
+<span class="material-symbols-outlined mb-1">dashboard</span>
+<span class="text-label-sm font-label-sm">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-highest transition-all scale-95 duration-100 w-1/4" href="#">
+<span class="material-symbols-outlined mb-1">directions_car</span>
+<span class="text-label-sm font-label-sm">Fleet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed font-bold hover:bg-surface-container-highest transition-all scale-95 duration-100 w-1/4" href="#">
+<span class="material-symbols-outlined mb-1 icon-fill">calendar_month</span>
+<span class="text-label-sm font-label-sm">Bookings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim hover:bg-surface-container-highest transition-all scale-95 duration-100 w-1/4" href="#">
+<span class="material-symbols-outlined mb-1">notifications</span>
+<span class="text-label-sm font-label-sm">Alerts</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction simulation
+        function simulateCheck() {
+            const destInput = document.getElementById('destination').value || 'Downtown Site';
+            const timeInput = document.getElementById('datetime').value || 'Today';
+
+            const btn = document.getElementById('check-btn');
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin text-sm mr-2 align-middle">sync</span>Checking...';
+            btn.classList.add('opacity-80', 'cursor-not-allowed');
+
+            setTimeout(() => {
+                document.getElementById('suggest-dest').textContent = destInput;
+                // Basic time format for demo
+                const timeStr = timeInput.split('T')[1] || '14:00';
+                document.getElementById('suggest-time').textContent = timeStr;
+
+                document.getElementById('suggestion-banner').classList.remove('hidden');
+
+                btn.innerHTML = 'Check Availability';
+                btn.classList.remove('opacity-80', 'cursor-not-allowed');
+                btn.classList.add('hidden');
+
+                document.getElementById('submit-btn').classList.remove('hidden');
+            }, 800);
+        }
+
+        function hideSuggestion() {
+            document.getElementById('suggestion-banner').classList.add('hidden');
+        }
+
+        function joinTrip() {
+            alert('Successfully requested to join existing trip. Pending driver confirmation.');
+            hideSuggestion();
+            // Reset form conceptually
+            document.getElementById('submit-btn').classList.add('hidden');
+            document.getElementById('check-btn').classList.remove('hidden');
+        }
+    </script>
+
+
+<script>
+(function() {
+    const pickupInput = document.getElementById('datetime');
+    const durationInput = document.getElementById('duration-hours');
+    const returnInput = document.getElementById('return-time');
+
+    // Set current time as default if not already set by server
+    const now = new Date();
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    pickupInput.value = now.toISOString().slice(0, 16);
+
+    function calculateReturn() {
+        if (!pickupInput.value || !durationInput.value) return;
+
+        const pickupDate = new Date(pickupInput.value);
+        const durationHours = parseFloat(durationInput.value);
+
+        if (isNaN(durationHours)) return;
+
+        const returnDate = new Date(pickupDate.getTime() + durationHours * 60 * 60 * 1000);
+
+        const hours = String(returnDate.getHours()).padStart(2, '0');
+        const minutes = String(returnDate.getMinutes()).padStart(2, '0');
+
+        returnInput.value = `${hours}:${minutes}`;
+    }
+
+    pickupInput.addEventListener('change', calculateReturn);
+    durationInput.addEventListener('input', calculateReturn);
+})();
+</script></body></html>
